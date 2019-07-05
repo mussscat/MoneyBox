@@ -1,0 +1,6 @@
+framework module Pods_MoneyBox {
+  umbrella header "Pods-MoneyBox-umbrella.h"
+
+  export *
+  module * { export * }
+}
