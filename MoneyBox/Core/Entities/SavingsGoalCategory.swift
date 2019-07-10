@@ -7,47 +7,48 @@
 //
 
 import Foundation
+import CoreData
 
-public struct SavingsGoalCategory: Identifiable, Codable {
-    public var identifier: String
-    public var name: String
-    public var iconURL: String
-    public var sortOrder: Int16
+struct SavingsGoalCategory: Identifiable, Codable {
+    var identifier: String
+    var name: String
+    var iconURL: String?
     
     init(identifier: String,
          name: String,
-         iconURL: String,
-         sortOrder: Int16) {
+         iconURL: String?) {
         self.identifier = identifier
         self.name = name
         self.iconURL = iconURL
-        self.sortOrder = sortOrder
+    }
+    
+    init(name: String,
+         iconURL: String?) {
+        self.identifier = UUID().uuidString
+        self.name = name
+        self.iconURL = iconURL
     }
 }
 
 extension SavingsGoalCategory: Convertible {
+
+    typealias DBObjectType = SavingGoalCategoryDBO
     
-    public typealias DBObjectType = SavingGoalCategoryDBO
+    func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType? {
+        return DBObjectType.insert(into: context, updateClosure: { category in
+            self.updateManagedObject(category, in: context)
+        })
+    }
     
-    public func updateDatabaseObject(_ object: DBObjectType) {
+    func updateManagedObject(_ object: DBObjectType, in context: NSManagedObjectContext) {
         object.identifier = self.identifier
         object.name = self.name
         object.iconURL = self.iconURL
-        object.sortOrder = self.sortOrder
     }
     
-    public static func createPonso(from object: DBObjectType) -> SavingsGoalCategory? {
-        guard
-            let identifier = object.identifier,
-            let name = object.name,
-            let url = object.iconURL
-        else {
-            return nil
-        }
-
-        return SavingsGoalCategory(identifier: identifier,
-                                   name: name,
-                                   iconURL: url,
-                                   sortOrder: object.sortOrder)
+    static func createPlainObject(from object: DBObjectType) -> SavingsGoalCategory {
+        return SavingsGoalCategory(identifier: object.identifier,
+                                   name: object.name,
+                                   iconURL: object.iconURL)
     }
 }

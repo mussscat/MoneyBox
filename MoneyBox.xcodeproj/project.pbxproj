@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1417887121C98E52007638D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417887021C98E52007638D8 /* Currency.swift */; };
-		144FD1EB2128D03400F2F08D /* MoneyBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1E92128D03400F2F08D /* MoneyBox.xcdatamodeld */; };
 		144FD1EE2128D06000F2F08D /* Storage_protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1ED2128D06000F2F08D /* Storage_protocol.swift */; };
 		144FD1F02128D06C00F2F08D /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1EF2128D06C00F2F08D /* Storage.swift */; };
 		144FD1F32128D11900F2F08D /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1F22128D11900F2F08D /* Convertible.swift */; };
@@ -67,6 +66,16 @@
 		72631D02222B169B00FC937A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72631D01222B169B00FC937A /* Assets.xcassets */; };
 		72D290C922383B9400D06F9F /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D290C822383B9400D06F9F /* DatePickerView.swift */; };
 		72D290CC2238400500D06F9F /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D290CB2238400500D06F9F /* DatePickerView.xib */; };
+		72E83FDD22D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E83FD722D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataProperties.swift */; };
+		72E83FDE22D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E83FD822D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataProperties.swift */; };
+		72E83FDF22D0C18D00ABE2D2 /* CurrencyDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E83FD922D0C18D00ABE2D2 /* CurrencyDBO+CoreDataProperties.swift */; };
+		72E83FE022D0C18D00ABE2D2 /* CurrencyDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E83FDA22D0C18D00ABE2D2 /* CurrencyDBO+CoreDataClass.swift */; };
+		72E83FE122D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E83FDB22D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataClass.swift */; };
+		72E83FE222D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E83FDC22D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataClass.swift */; };
+		72E83FE322D0C70500ABE2D2 /* MoneyBox.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 144FD1E92128D03400F2F08D /* MoneyBox.xcdatamodeld */; };
+		72ED131622D51B5800265007 /* CoreDataObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED131522D51B5800265007 /* CoreDataObjectsManager.swift */; };
+		72ED131822D51D6900265007 /* IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED131722D51D6900265007 /* IManagedObject.swift */; };
+		72ED131B22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED131A22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift */; };
 		80042353DCB4DF990D575213 /* Pods_MoneyBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABCFF57D659903DF7208E3C9 /* Pods_MoneyBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +154,15 @@
 		72631D01222B169B00FC937A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72D290C822383B9400D06F9F /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		72D290CB2238400500D06F9F /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		72E83FD722D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavingGoalDBO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		72E83FD822D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavingGoalCategoryDBO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		72E83FD922D0C18D00ABE2D2 /* CurrencyDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyDBO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		72E83FDA22D0C18D00ABE2D2 /* CurrencyDBO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyDBO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		72E83FDB22D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavingGoalDBO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		72E83FDC22D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavingGoalCategoryDBO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		72ED131522D51B5800265007 /* CoreDataObjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataObjectsManager.swift; sourceTree = "<group>"; };
+		72ED131722D51D6900265007 /* IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IManagedObject.swift; sourceTree = "<group>"; };
+		72ED131A22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+IManagedObject.swift"; sourceTree = "<group>"; };
 		ABCFF57D659903DF7208E3C9 /* Pods_MoneyBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05C2BE1839D83B38A74C22B /* Pods-MoneyBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyBox/Pods-MoneyBox.debug.xcconfig"; sourceTree = "<group>"; };
 		D0C396D5F50358908534E071 /* Pods-MoneyBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyBox/Pods-MoneyBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,13 +187,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		144FD1E82128D00000F2F08D /* CoreData */ = {
+		144FD1E82128D00000F2F08D /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
 				148376062128C62600C94B58 /* CoreDataStack_protocol.swift */,
 				1483760A2128C80600C94B58 /* CoreDataStack.swift */,
 			);
-			path = CoreData;
+			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
 		144FD1EC2128D04200F2F08D /* Result */ = {
@@ -189,6 +207,7 @@
 		144FD1F12128D07200F2F08D /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				72ED131522D51B5800265007 /* CoreDataObjectsManager.swift */,
 				149165792168CBC7003425D1 /* StorageAssembly.swift */,
 				144FD1ED2128D06000F2F08D /* Storage_protocol.swift */,
 				144FD1EF2128D06C00F2F08D /* Storage.swift */,
@@ -233,6 +252,7 @@
 		144FD2072130ADEF00F2F08D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				72E83FD622D0C18D00ABE2D2 /* ManagedObjects */,
 				144FD1E92128D03400F2F08D /* MoneyBox.xcdatamodeld */,
 				144FD2082130AE1700F2F08D /* SavingsGoalCategory.swift */,
 				144FD20A2130AE2A00F2F08D /* SavingsGoal.swift */,
@@ -378,10 +398,11 @@
 				1491658E216C18AE003425D1 /* Constants */,
 				1491658B216BE8D6003425D1 /* CommonExtensions */,
 				144FD1F12128D07200F2F08D /* Storage */,
-				144FD1E82128D00000F2F08D /* CoreData */,
+				144FD1E82128D00000F2F08D /* CoreDataStack */,
 				144FD1FB212A051F00F2F08D /* Identifiable */,
 				144FD2072130ADEF00F2F08D /* Entities */,
 				144FD1EC2128D04200F2F08D /* Result */,
+				72ED131922D51D6D00265007 /* ManagedObject */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -561,6 +582,28 @@
 			path = DatePickerView;
 			sourceTree = "<group>";
 		};
+		72E83FD622D0C18D00ABE2D2 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				72E83FD722D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataProperties.swift */,
+				72E83FD822D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataProperties.swift */,
+				72E83FD922D0C18D00ABE2D2 /* CurrencyDBO+CoreDataProperties.swift */,
+				72E83FDA22D0C18D00ABE2D2 /* CurrencyDBO+CoreDataClass.swift */,
+				72E83FDB22D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataClass.swift */,
+				72E83FDC22D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataClass.swift */,
+			);
+			path = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		72ED131922D51D6D00265007 /* ManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				72ED131A22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift */,
+				72ED131722D51D6900265007 /* IManagedObject.swift */,
+			);
+			path = ManagedObject;
+			sourceTree = "<group>";
+		};
 		83F1EA0FD1C85ABBB1B87363 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +706,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E83FE322D0C70500ABE2D2 /* MoneyBox.xcdatamodeld in Resources */,
 				1491658A216BE598003425D1 /* SetupViewController.xib in Resources */,
 				14FEC5BB213C776700279C80 /* GoalsListHeaderReusableView.xib in Resources */,
 				144FD21A21333A6600F2F08D /* GoalsListCollectionViewCell.xib in Resources */,
@@ -738,6 +782,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E83FDE22D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataProperties.swift in Sources */,
 				14A1B41D2173CAF90083B235 /* ShortGoalInformationInputViewController.swift in Sources */,
 				1483760B2128C80600C94B58 /* CoreDataStack.swift in Sources */,
 				72631CFB222B0AF900FC937A /* SetupPresenter.swift in Sources */,
@@ -745,11 +790,14 @@
 				144FD1FE212E0FD700F2F08D /* FlowCoordinator.swift in Sources */,
 				1491656C2168C279003425D1 /* OnboardingCoordinator.swift in Sources */,
 				144FD206212FD41E00F2F08D /* ApplicationAssembly.swift in Sources */,
+				72ED131B22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift in Sources */,
+				72E83FDF22D0C18D00ABE2D2 /* CurrencyDBO+CoreDataProperties.swift in Sources */,
 				144FD20F2130B7DB00F2F08D /* SavingsGoalService_protocol.swift in Sources */,
 				144FD1F32128D11900F2F08D /* Convertible.swift in Sources */,
 				1491656A2168C260003425D1 /* OnboardingAssembly.swift in Sources */,
 				144FD200212E10C800F2F08D /* ApplicationCoordinator.swift in Sources */,
 				144FD1F52128D13200F2F08D /* Identifiable.swift in Sources */,
+				72E83FE222D0C18D00ABE2D2 /* SavingGoalCategoryDBO+CoreDataClass.swift in Sources */,
 				144FD20B2130AE2A00F2F08D /* SavingsGoal.swift in Sources */,
 				149165712168C3A6003425D1 /* GoalsListCoordinator.swift in Sources */,
 				144FD2142133390800F2F08D /* GoalsListViewController.swift in Sources */,
@@ -759,6 +807,7 @@
 				72631CFD222B0B0200FC937A /* SetupIO.swift in Sources */,
 				14916590216C18C4003425D1 /* GlobalConstants.swift in Sources */,
 				144FD21921333A6600F2F08D /* GoalsListCollectionViewCell.swift in Sources */,
+				72ED131822D51D6900265007 /* IManagedObject.swift in Sources */,
 				72631CF4222B041400FC937A /* GoalCalculationsIO.swift in Sources */,
 				144FD1FA2129FFB200F2F08D /* LocalNotificationsService.swift in Sources */,
 				14FEC5B6213C72CA00279C80 /* GoalsListCollectionViewLayout.swift in Sources */,
@@ -766,6 +815,7 @@
 				1491658D216BE8E8003425D1 /* UIView+LoadFromNib.swift in Sources */,
 				720E9D3D21D77CB300C3F302 /* GoalCalculationsPresenter.swift in Sources */,
 				72631CF9222B059300FC937A /* UIViewController+AlertViewDisplayable.swift in Sources */,
+				72E83FE022D0C18D00ABE2D2 /* CurrencyDBO+CoreDataClass.swift in Sources */,
 				14A1B4212173CB320083B235 /* GoalCalculationsViewController.swift in Sources */,
 				72631CFF222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift in Sources */,
 				144FD1EE2128D06000F2F08D /* Storage_protocol.swift in Sources */,
@@ -774,9 +824,10 @@
 				144FD1F82128D36000F2F08D /* StorageRequest.swift in Sources */,
 				149165782168C978003425D1 /* SetupCoordinator.swift in Sources */,
 				148376092128C6F500C94B58 /* Result.swift in Sources */,
+				72E83FE122D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataClass.swift in Sources */,
 				144FD1F02128D06C00F2F08D /* Storage.swift in Sources */,
 				144FD2112130B7F100F2F08D /* SavingsGoalService.swift in Sources */,
-				144FD1EB2128D03400F2F08D /* MoneyBox.xcdatamodeld in Sources */,
+				72E83FDD22D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataProperties.swift in Sources */,
 				144FD2092130AE1700F2F08D /* SavingsGoalCategory.swift in Sources */,
 				148375E72128C55B00C94B58 /* AppDelegate.swift in Sources */,
 				72631CF6222B054900FC937A /* AlertViewDisplayable.swift in Sources */,
@@ -786,6 +837,7 @@
 				72D290C922383B9400D06F9F /* DatePickerView.swift in Sources */,
 				1491657A2168CBC7003425D1 /* StorageAssembly.swift in Sources */,
 				14916589216BE598003425D1 /* SetupViewController.swift in Sources */,
+				72ED131622D51B5800265007 /* CoreDataObjectsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

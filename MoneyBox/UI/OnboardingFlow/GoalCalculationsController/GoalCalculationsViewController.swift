@@ -14,18 +14,18 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
     struct GoalCalculationsModel {
         var category: SavingsGoalCategory
         var deadline: Date
-        var period: Int
+        var period: Double
     }
     
     @IBOutlet weak var categoryInputTextField: UITextField!
     @IBOutlet weak var deadlineInputTextField: UITextField!
     @IBOutlet weak var periodInputTextField: UITextField!
-    @IBOutlet weak var categoryTagsCloudView: TagListView!
     @IBOutlet weak var doneButton: UIButton!
     
     var onGoalCreationFinished: (() -> Void)?
     
     private let presenter: IGoalCalculationsInput
+    private var category: SavingsGoalCategory?
     
     init(presenter: IGoalCalculationsInput) {
         self.presenter = presenter
@@ -43,7 +43,6 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
         self.categoryInputTextField.delegate = self
         self.deadlineInputTextField.delegate = self
         self.periodInputTextField.delegate = self
-        self.categoryTagsCloudView.delegate = self
         
         let dismissalRecognizer = UITapGestureRecognizer(target: self, action: #selector(mainViewTapped))
         self.view.addGestureRecognizer(dismissalRecognizer)
@@ -51,8 +50,6 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
         self.doneButton.addTarget(self, action: #selector(submitFormButtonPressed), for: .touchUpInside)
         
         self.preloadCategoriesList()
-        
-        self.deadlineInputTextField.text = String(describing: Date())
     }
     
     private func preloadCategoriesList() {
@@ -69,11 +66,12 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
     }
     
     func updateWithCategories(_ categories: [SavingsGoalCategory]) {
-        let tags = categories.reduce(into: [String]()) { result, category in
+        let categoryNames = categories.reduce(into: [String]()) { result, category in
             result.append(category.name)
         }
         
-        self.categoryTagsCloudView.addTags(tags)
+        self.category = categories.first
+        self.categoryInputTextField.text = categoryNames.first
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -90,16 +88,14 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
     
     @objc private func submitFormButtonPressed() {
         guard
-            let name = self.categoryInputTextField.text,
-//            let dateString = self.deadlineInputTextField.text,
             let period = self.periodInputTextField.text,
-            let intPeriod = Int(period)
+            let doublePeriod = Double(period)
         else {
             return
         }
         
-        let category = SavingsGoalCategory(identifier: "1", name: name, iconURL: "", sortOrder: 1)
-        let model = GoalCalculationsModel(category: category, deadline: Date(), period: intPeriod)
+        let category = self.category!
+        let model = GoalCalculationsModel(category: category, deadline: Date(), period: doublePeriod)
         
         self.presenter.saveGoalWithCalculationsModel(model)
     }

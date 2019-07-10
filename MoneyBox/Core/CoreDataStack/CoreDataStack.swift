@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class CoreDataStack: ICoreDataStack {
+class CoreDataStack: ICoreDataStack {
     
     private enum Constants {
         static let dbExtension = "momd"
@@ -22,14 +22,14 @@ public class CoreDataStack: ICoreDataStack {
     private let dbName: String
     private let bundle: Bundle
     
-    public init(dbName: String, bundle: Bundle) {
+    init(dbName: String, bundle: Bundle) {
         self.dbName = dbName
         self.bundle = bundle
     }
     
     // MARK: CoreDataStack protocol implementation
     
-    public func execute<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) throws -> [T] {
+    func execute<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) throws -> [T] {
         do {
             let result = try context.fetch(fetchRequest)
             return result
@@ -38,7 +38,7 @@ public class CoreDataStack: ICoreDataStack {
         }
     }
     
-    public func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void)) {
+    func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void)) {
         self.dispatchQueue.async {
             let result = self.unsafeExecuteSyncTransaction(transaction)
             switch result {
@@ -77,7 +77,7 @@ public class CoreDataStack: ICoreDataStack {
         }
     }
     
-    public func setupStack(completion: ((Result<Void, Error>) -> Void)?) {
+    func setupStack(completion: ((Result<Void, Error>) -> Void)?) {
         do {
             self.persistentStoreContainer = try self.createPersistentStoreContainer()
             self.persistentStoreContainer?.loadPersistentStores { _, error in

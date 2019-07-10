@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum SavingsGoalServiceError: Error {
+enum SavingsGoalServiceError: Error {
     case savingsGoalNotFound
     case savingsGoalsNotFound
     case failedToAddSavingsGoal
@@ -19,7 +19,7 @@ public enum SavingsGoalServiceError: Error {
     case fetchGoalFailed
 }
 
-public protocol ISavingsGoalService: class {
+protocol ISavingsGoalService: class {
     func add(savingsGoal: SavingsGoal, completion: @escaping ((Result<SavingsGoal, SavingsGoalServiceError>) -> Void))
     func remove(savingsGoal: SavingsGoal, completion: @escaping ((Result<Void, SavingsGoalServiceError>) -> Void))
     func update(savingsGoal: SavingsGoal, completion: @escaping ((Result<SavingsGoal, SavingsGoalServiceError>) -> Void))

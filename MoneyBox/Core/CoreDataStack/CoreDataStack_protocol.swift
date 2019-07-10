@@ -9,9 +9,9 @@
 import Foundation
 import CoreData
 
-public typealias CoreDataStackTransaction<T> = ((NSManagedObjectContext) throws -> T)
+typealias CoreDataStackTransaction<T> = ((NSManagedObjectContext) throws -> T)
 
-public enum CoreDataStackError: Error {
+enum CoreDataStackError: Error {
     case gettingMainContextFailed
     case gettingBackgroundContextFailed
     case persistentContainerInitFailed
@@ -20,9 +20,18 @@ public enum CoreDataStackError: Error {
     case executeAsyncTransactionFailed
     case executeSyncTransactionFailed
     case unsafeExecuteSyncTransactionFailed
+    
+    var localizedDescription: String {
+        switch self {
+        case .executeFetchRequestFailed:
+            return "Faield to execute fetch request"
+        default:
+            return "Failure happened: \(String(describing: self))"
+        }
+    }
 }
 
-public protocol ICoreDataStack {
+protocol ICoreDataStack {
     func execute<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) throws -> [T]
     func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void))
     func setupStack(completion: ((Result<Void, Error>) -> Void)?)

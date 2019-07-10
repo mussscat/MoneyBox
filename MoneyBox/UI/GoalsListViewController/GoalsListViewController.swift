@@ -46,10 +46,13 @@ class GoalsListViewController: UIViewController, UICollectionViewDelegate, UICol
     
     private func updateGoalsList() {
         self.goalsService.fetchAllGoals { [weak self] result in
-            result.withValue({ goals in
+            do {
+                let goals = try result.get()
                 self?.goals = goals
                 self?.collectionView.reloadData()
-            })
+            } catch {
+                self?.showAlertView(error: error)
+            }
         }
     }
     
@@ -75,16 +78,10 @@ class GoalsListViewController: UIViewController, UICollectionViewDelegate, UICol
             return UICollectionViewCell()
         }
         
-        var deadlineText: String? = nil
-        if let deadline = goal.deadline {
-            deadlineText = String(describing: deadline)
-        } else if let period = goal.period {
-            deadlineText = String(describing: period)
-        }
-        
         goalCell.setup(with: goal.name,
                        amount: String(describing: goal.totalAmount),
-                       currency: goal.currency, deadline: deadlineText)
+                       currency: goal.currency.name,
+                       deadline: String(describing: goal.deadline))
         
         return goalCell
     }

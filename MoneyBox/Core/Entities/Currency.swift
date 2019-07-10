@@ -7,35 +7,42 @@
 //
 
 import Foundation
+import CoreData
 
-public struct Currency: Identifiable, Codable {
-    public var identifier: String
-    public var name: String
+struct Currency: Identifiable, Codable {
+    var identifier: String
+    var name: String
     
     init(identifier: String,
          name: String) {
         self.identifier = identifier
         self.name = name
     }
+    
+    init(name: String) {
+        self.identifier = UUID().uuidString
+        self.name = name
+    }
 }
 
 extension Currency: Convertible {
-    public typealias DBObjectType = CurrencyDBO
     
-    public func updateDatabaseObject(_ object: DBObjectType) {
+    typealias DBObjectType = CurrencyDBO
+    
+    func updateManagedObject(_ object: DBObjectType, in context: NSManagedObjectContext) {
         object.name = self.name
         object.identifier = self.identifier
     }
     
-    public static func createPonso(from object: DBObjectType) -> Currency? {
-        guard
-            let identifier = object.identifier,
-            let name = object.name
-        else {
-            return nil
-        }
-        
-        return Currency(identifier: identifier,
-                        name: name)
+    static func createPlainObject(from object: DBObjectType) -> Currency {
+        return Currency(identifier: object.identifier,
+                        name: object.name)
     }
+    
+    func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType? {
+        return DBObjectType.insert(into: context, updateClosure: { currency in
+            self.updateManagedObject(currency, in: context)
+        })
+    }
+    
 }

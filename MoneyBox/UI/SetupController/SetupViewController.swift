@@ -30,6 +30,10 @@ class SetupViewController: UIViewController, SetupOutput {
         super.viewDidLoad()
         
         self.setupImageView.image = UIImage(named: "setupImage")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.presenter.setupPresenter()
     }

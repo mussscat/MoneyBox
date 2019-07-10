@@ -13,7 +13,7 @@ class ShortGoalInformationInputViewController: UIViewController, UITextFieldDele
     struct ShortGoalInfoModel {
         var name: String
         var totalSum: Double
-        var currency: String
+        var currency: Currency
     }
     
     enum ShortGoalFieldTag: Int {
@@ -28,6 +28,9 @@ class ShortGoalInformationInputViewController: UIViewController, UITextFieldDele
     @IBOutlet weak var totalSumTextField: UITextField!
     @IBOutlet weak var currencyTextField: UITextField!
     
+    var storage: IStorage!
+    private var currency: Currency?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +41,13 @@ class ShortGoalInformationInputViewController: UIViewController, UITextFieldDele
         self.nameTextField.delegate = self
         self.totalSumTextField.delegate = self
         self.currencyTextField.delegate = self
+        
+        self.storage.fetch(request: StorageRequest<Currency>()) { result in
+            if let currency = try? result.get().first {
+                self.currency = currency
+                self.currencyTextField.text = currency.name
+            }
+        }
     }
     
     // MARK: UITextFieldDelegate
@@ -60,16 +70,41 @@ class ShortGoalInformationInputViewController: UIViewController, UITextFieldDele
             let name = self.nameTextField.text,
             let sum = self.totalSumTextField.text,
             let doubleSum = Double(sum),
-            let currency = self.currencyTextField.text,
             let continueClosure = self.onContinue
         else {
             return
         }
         
+        let currency = self.currency!
         let model = ShortGoalInfoModel(name: name,
                                        totalSum: doubleSum,
                                        currency: currency)
         
         continueClosure(model)
+    }
+    
+    @IBAction func onCreateCurrency(_ sender: Any) {
+        let currency = Currency(name: "RUB")
+        self.storage.createOrUpdate(objects: [currency]) { result in
+            do {
+                let fetchedCurrency = try result.get().first
+                self.currency = fetchedCurrency
+                self.currencyTextField.text = fetchedCurrency?.name
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    @IBAction func onCreateCategory(_ sender: Any) {
+        let category = SavingsGoalCategory(name: "Joy", iconURL: nil)
+        self.storage.createOrUpdate(objects: [category]) { result in
+            do {
+                let fetchedCategory = try result.get().first
+                print(fetchedCategory)
+            } catch {
+                print(error)
+            }
+        }
     }
 }

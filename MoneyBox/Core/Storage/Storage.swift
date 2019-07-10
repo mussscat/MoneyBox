@@ -19,33 +19,24 @@ class Storage: IStorage {
     
     // MARK: IStorage protocol implementation
     
-    func saveOrUpdate<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void) {
+    func createOrUpdate<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void) {
         self.stack.execute(transaction: { context in
             var savedObjects = [T]()
             savedObjects.reserveCapacity(objects.count)
             
             for object in objects {
                 let fetchRequest = StorageRequest<T>(identifier: object.identifier).createFetchRequest()
-                let fetchedObjects = try self.stack.execute(fetchRequest, context: context)
-                if let foundObject = fetchedObjects.first {
-                    object.updateDatabaseObject(foundObject)
-                    guard let newPlainObject = T.createPonso(from: foundObject) else {
-                        throw StorageError.failedToCreatePlainObject
-                    }
-                    
+                let fetchedObjects = try? self.stack.execute(fetchRequest, context: context)
+                if let foundObject = fetchedObjects?.first {
+                    object.updateManagedObject(foundObject, in: context)
+                    let newPlainObject = T.createPlainObject(from: foundObject)
                     savedObjects.append(newPlainObject)
                 } else {
-                    guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.DBObjectType.self),
-                                                                               into: context) as? T.DBObjectType else {
+                    guard let managedObject = object.createManagedObject(in: context) else {
                         throw StorageError.failedToCreateManagedObject
                     }
                     
-                    object.updateDatabaseObject(managedObject)
-                    
-                    guard let newPlainObject = T.createPonso(from: managedObject) else {
-                        throw StorageError.failedToCreatePlainObject
-                    }
-                    
+                    let newPlainObject = T.createPlainObject(from: managedObject)
                     savedObjects.append(newPlainObject)
                 }
             }
@@ -66,15 +57,12 @@ class Storage: IStorage {
             var updateResults = [T]()
             updateResults.reserveCapacity(objects.count)
             
-            for ponso in objects {
-                let fetchRequest = StorageRequest<T>(identifier: ponso.identifier).createFetchRequest()
+            for object in objects {
+                let fetchRequest = StorageRequest<T>(identifier: object.identifier).createFetchRequest()
                 let fetchedObjects = try self.stack.execute(fetchRequest, context: context)
                 if let foundObject = fetchedObjects.first {
-                    ponso.updateDatabaseObject(foundObject)
-                    guard let plainObject = T.createPonso(from: foundObject) else {
-                        throw StorageError.failedToCreatePlainObject
-                    }
-                    
+                    object.updateManagedObject(foundObject, in: context)
+                    let plainObject = T.createPlainObject(from: foundObject)
                     updateResults.append(plainObject)
                 } else {
                     throw StorageError.updateObjectsFailed
@@ -114,8 +102,8 @@ class Storage: IStorage {
     func fetch<T: PlainObject>(request: StorageRequest<T>, completion: @escaping (Result<[T], Error>) -> Void) {
         self.stack.execute(transaction: { context in
             let objects = try self.stack.execute(request.createFetchRequest(), context: context)
-            let ponsoObjects = objects.map({ T.createPonso(from: $0) }).compactMap { $0 }
-            return ponsoObjects
+            let plainObjects = objects.map({ T.createPlainObject(from: $0) }).compactMap { $0 }
+            return plainObjects
         }, completion: completion)
     }
 }

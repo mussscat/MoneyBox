@@ -9,7 +9,7 @@
 import Foundation
 import UserNotifications
 
-public protocol ILocalNotificationsService {
+protocol ILocalNotificationsService {
     func registerForLocalNotifications(options: [UNAuthorizationOptions], completion: ((Bool) -> Void))
     func cancelAllNotifications()
     

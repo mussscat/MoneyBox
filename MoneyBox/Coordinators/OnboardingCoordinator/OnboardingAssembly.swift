@@ -18,7 +18,10 @@ class OnboardingAssembly: Assembly {
     }
     
     func shortGoalInfoController() -> ShortGoalInformationInputViewController {
-        return define(scope: .prototype, init: ShortGoalInformationInputViewController())
+        return define(scope: .prototype, init: ShortGoalInformationInputViewController()) {
+            $0.storage = self.storageAssembly.storage
+            return $0
+        }
     }
     
     func calculationController(shortModel: ShortGoalInformationInputViewController.ShortGoalInfoModel) -> GoalCalculationsViewController {

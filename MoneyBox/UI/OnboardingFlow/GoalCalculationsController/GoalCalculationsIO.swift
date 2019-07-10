@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum GoalCalculationsPresenterError: Error {
+enum GoalCalculationsPresenterError: Error {
     case couldNotLoadCategoriesList
 }
 

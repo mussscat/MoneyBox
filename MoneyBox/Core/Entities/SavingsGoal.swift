@@ -7,43 +7,44 @@
 //
 
 import Foundation
+import CoreData
 
-public struct SavingsGoal: Identifiable, Codable {
+struct SavingsGoal: Identifiable {
     private(set) var identifier: String
-    public var categoryId: String
-    public var totalAmount: Double
-    public var name: String
-    public var currency: String
-    public var deadline: Date?
-    public var period: Double?
+    var category: SavingsGoalCategory
+    var totalAmount: Double
+    var name: String
+    var currency: Currency
+    var deadline: Date
+    var period: Double
     
-    public init(categoryId: String,
-                totalAmount: Double,
-                name: String,
-                currency: Currency,
-                deadline: Date? = nil,
-                period: Double? = 0) {
-        self.identifier = UUID().uuidString
+    init(identifier: Identifier,
+         category: SavingsGoalCategory,
+         totalAmount: Double,
+         name: String,
+         currency: Currency,
+         deadline: Date,
+         period: Double) {
+        self.identifier = identifier
+        self.category = category
         self.totalAmount = totalAmount
         self.name = name
-        self.currency = currency.identifier
-        self.categoryId = categoryId
+        self.currency = currency
         self.deadline = deadline
         self.period = period
     }
     
-    public init(identifier: String,
-                categoryId: String,
-                totalAmount: Double,
-                name: String,
-                currency: String,
-                deadline: Date? = nil,
-                period: Double? = 0) {
-        self.identifier = identifier
+    init(category: SavingsGoalCategory,
+         totalAmount: Double,
+         name: String,
+         currency: Currency,
+         deadline: Date,
+         period: Double) {
+        self.identifier = UUID().uuidString
+        self.category = category
         self.totalAmount = totalAmount
         self.name = name
         self.currency = currency
-        self.categoryId = categoryId
         self.deadline = deadline
         self.period = period
     }
@@ -51,34 +52,42 @@ public struct SavingsGoal: Identifiable, Codable {
 
 extension SavingsGoal: Convertible {
     
-    public typealias DBObjectType = SavingGoalDBO
+    typealias DBObjectType = SavingGoalDBO
     
-    public func updateDatabaseObject(_ object: DBObjectType) {
+    func updateManagedObject(_ object: SavingGoalDBO, in context: NSManagedObjectContext) {
         object.totalAmount = self.totalAmount
         object.identifier = self.identifier
         object.name = self.name
-        object.currency = self.currency
-        object.period = self.period ?? 0
+        object.period = self.period
         object.deadline = self.deadline
-        object.categoryId = self.categoryId
-    }
-    
-    public static func createPonso(from object: DBObjectType) -> SavingsGoal? {
-        guard
-            let identifier = object.identifier,
-            let name = object.name,
-            let currency = object.currency,
-            let categoryId = object.categoryId
-        else {
-            return nil
+        
+        if object.category.identifier != self.category.identifier {
+            object.updateCategory(with: self.category.identifier, in: context)
         }
         
-        return SavingsGoal(identifier: identifier,
-                           categoryId: categoryId,
+        if object.currency.identifier != self.currency.identifier {
+            object.updateCurrency(with: self.currency.identifier, in: context)
+        }
+    }
+    
+    func createManagedObject(in context: NSManagedObjectContext) -> SavingGoalDBO? {
+        return SavingGoalDBO.insert(into: context,
+                                    categoryId: self.category.identifier,
+                                    currencyId: self.currency.identifier,
+                                    updateClosure: { goalObject in
+                                        self.updateManagedObject(goalObject, in: context)
+        })
+    }
+    
+    static func createPlainObject(from object: DBObjectType) -> SavingsGoal {
+        let category = SavingsGoalCategory.createPlainObject(from: object.category)
+        let currency = Currency.createPlainObject(from: object.currency)
+        
+        return SavingsGoal(identifier: object.identifier,
+                           category: category,
                            totalAmount: object.totalAmount,
-                           name: name,
-                           currency: currency,
-                           deadline: object.deadline,
+                           name: object.name,
+                           currency: currency, deadline: object.deadline,
                            period: object.period)
     }
 }

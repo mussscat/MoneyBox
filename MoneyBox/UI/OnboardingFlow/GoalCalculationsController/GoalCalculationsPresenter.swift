@@ -39,15 +39,14 @@ class GoalCalculationsPresenter: IGoalCalculationsInput {
     }
     
     func saveGoalWithCalculationsModel(_ model: GoalCalculationsViewController.GoalCalculationsModel) {
-        let goal = SavingsGoal(identifier: "",
-                               categoryId: model.category.identifier,
-                               totalAmount: shortModel.totalSum,
-                               name: shortModel.name,
-                               currency: shortModel.currency,
+        let goal = SavingsGoal(category: model.category,
+                               totalAmount: self.shortModel.totalSum,
+                               name: self.shortModel.name,
+                               currency: self.shortModel.currency,
                                deadline: model.deadline,
-                               period: Double(model.period))
+                               period: model.period)
         self.calculationsController?.showProgress()
-        self.storage.saveOrUpdate(objects: [goal]) { result in
+        self.storage.createOrUpdate(objects: [goal]) { result in
             self.calculationsController?.hideProgress()
             result.withValue({ _ in
                 self.calculationsController?.updateWithSavingsGoal()

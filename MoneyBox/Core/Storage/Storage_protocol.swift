@@ -35,7 +35,7 @@ enum StorageError: Error {
 }
 
 protocol IStorage {
-    func saveOrUpdate<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
+    func createOrUpdate<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
     func update<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
     func remove<T: PlainObject>(objects: [T], completion: @escaping (Result<Void, Error>) -> Void)
     func fetch<T: PlainObject>(request: StorageRequest<T>, completion: @escaping (Result<[T], Error>) -> Void)

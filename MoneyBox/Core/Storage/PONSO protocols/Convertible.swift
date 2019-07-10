@@ -14,6 +14,7 @@ typealias PlainObject = Convertible & Identifiable
 protocol Convertible {
     associatedtype DBObjectType: NSManagedObject
     
-    func updateDatabaseObject(_ object: DBObjectType)
-    static func createPonso(from object: DBObjectType) -> Self?
+    func updateManagedObject(_ object: DBObjectType, in context: NSManagedObjectContext)
+    func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType?
+    static func createPlainObject(from object: DBObjectType) -> Self
 }

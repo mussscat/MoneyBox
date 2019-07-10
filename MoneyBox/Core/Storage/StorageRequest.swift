@@ -17,8 +17,7 @@ class StorageRequest<T: PlainObject> {
     init() { }
     
     init(identifier: T.Identifier) {
-        self.predicate = NSPredicate(format: "identifier = %@",
-                                     argumentArray: [identifier])
+        self.predicate = NSPredicate(format: "identifier = %@",  argumentArray: [identifier])
         self.objectsLimit = 1
     }
     
