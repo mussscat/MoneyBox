@@ -33,6 +33,6 @@ enum CoreDataStackError: Error {
 
 protocol ICoreDataStack {
     func execute<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) throws -> [T]
-    func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void))
-    func setupStack(completion: ((Result<Void, Error>) -> Void)?)
+    func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Swift.Result<T, Error>) -> Void))
+    func setupStack(completion: ((Swift.Result<Void, Error>) -> Void)?)
 }

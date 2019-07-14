@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreData
+import IGListKit
 
-struct Currency: Identifiable, Codable {
+final class Currency: Identifiable, Codable {
     var identifier: String
     var name: String
     
@@ -44,5 +45,24 @@ extension Currency: Convertible {
             self.updateManagedObject(currency, in: context)
         })
     }
+}
+
+extension Currency: Equatable {
+    static public func ==(rhs: Currency, lhs: Currency) -> Bool {
+        return rhs.identifier == lhs.identifier
+    }
+}
+
+extension Currency: ListDiffable {
+    func diffIdentifier() -> NSObjectProtocol {
+        return NSString(string: self.identifier)
+    }
     
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard let object = object as? Currency else {
+            return false
+        }
+        
+        return self == object
+    }
 }

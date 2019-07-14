@@ -38,7 +38,7 @@ class CoreDataStack: ICoreDataStack {
         }
     }
     
-    func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void)) {
+    func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Swift.Result<T, Error>) -> Void)) {
         self.dispatchQueue.async {
             let result = self.unsafeExecuteSyncTransaction(transaction)
             switch result {
@@ -54,10 +54,10 @@ class CoreDataStack: ICoreDataStack {
         }
     }
     
-    private func unsafeExecuteSyncTransaction<T>(_ transaction: @escaping (NSManagedObjectContext) throws -> T) -> Result<T, Error> {
+    private func unsafeExecuteSyncTransaction<T>(_ transaction: @escaping (NSManagedObjectContext) throws -> T) -> Swift.Result<T, Error> {
         do {
             let context = try self.getBackgroundContext()
-            var result = Result<T, Error>.failure(CoreDataStackError.executeSyncTransactionFailed)
+            var result = Swift.Result<T, Error>.failure(CoreDataStackError.executeSyncTransactionFailed)
             context.performAndWait {
                 do {
                     let returnValue = try transaction(context)
@@ -77,7 +77,7 @@ class CoreDataStack: ICoreDataStack {
         }
     }
     
-    func setupStack(completion: ((Result<Void, Error>) -> Void)?) {
+    func setupStack(completion: ((Swift.Result<Void, Error>) -> Void)?) {
         do {
             self.persistentStoreContainer = try self.createPersistentStoreContainer()
             self.persistentStoreContainer?.loadPersistentStores { _, error in

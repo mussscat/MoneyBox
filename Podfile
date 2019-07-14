@@ -10,4 +10,6 @@ target 'MoneyBox' do
   pod 'TagListView'
   pod 'IGListKit', '~> 3.0'
   pod 'Moya', '~> 13.0'
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'PromiseKit'
 end

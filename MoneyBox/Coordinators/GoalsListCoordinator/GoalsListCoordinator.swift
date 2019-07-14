@@ -23,9 +23,19 @@ class GoalsListCoordinator: FlowCoordinator {
         return self.navigationController
     }
     
-    private lazy var rootViewController: GoalsListViewController = {
-        let controller = self.assembly.goalsListViewController()
-        
+    private lazy var rootViewController: GoalsViewController = {
+        let controller = self.assembly.goalsViewController()
+        controller.onAddGoal = { [weak self] in
+            self?.startAddGoalFlow()
+        }
         return controller
     }()
+    
+    private func startAddGoalFlow() {
+        let coordinator = self.assembly.onboardingCoordinator()
+        coordinator.onSuccess = { [weak self] in
+            self?.rootViewController.updateWithContainersLoaded()
+        }
+        self.startFlowCoordinator(coordinator)
+    }
 }

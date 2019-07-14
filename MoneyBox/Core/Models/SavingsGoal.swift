@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreData
+import IGListKit
 
-struct SavingsGoal: Identifiable {
+final class SavingsGoal: Identifiable {
     private(set) var identifier: String
     var category: SavingsGoalCategory
     var totalAmount: Double
@@ -89,5 +90,25 @@ extension SavingsGoal: Convertible {
                            name: object.name,
                            currency: currency, deadline: object.deadline,
                            period: object.period)
+    }
+}
+
+extension SavingsGoal: Equatable {
+    static public func ==(rhs: SavingsGoal, lhs: SavingsGoal) -> Bool {
+        return rhs.identifier == lhs.identifier
+    }
+}
+
+extension SavingsGoal: ListDiffable {
+    func diffIdentifier() -> NSObjectProtocol {
+        return NSString(string: self.identifier)
+    }
+    
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard let object = object as? SavingsGoal else {
+            return false
+        }
+        
+        return self == object
     }
 }

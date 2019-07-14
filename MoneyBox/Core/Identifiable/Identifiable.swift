@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Identifiable {
+protocol Identifiable: AnyObject {
     associatedtype Identifier
     
     var identifier: Identifier { get }

@@ -37,7 +37,7 @@ class OnboardingCoordinator: FlowCoordinator {
     private func showCalculationController(withShortModel: ShortGoalInformationInputViewController.ShortGoalInfoModel) {
         let controller = self.assembly.calculationController(shortModel: withShortModel)
         controller.onGoalCreationFinished = { [weak self] in
-            self?.onSuccess?()
+            self?.finishFlowWithSuccess(true)
         }
         self.navigationController.pushViewController(controller, animated: true)
     }
