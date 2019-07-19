@@ -82,6 +82,7 @@
 		72ED131622D51B5800265007 /* CoreDataObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED131522D51B5800265007 /* CoreDataObjectsManager.swift */; };
 		72ED131822D51D6900265007 /* IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED131722D51D6900265007 /* IManagedObject.swift */; };
 		72ED131B22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED131A22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift */; };
+		A30F4E80786492D4631863EE /* Pods_MoneyBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1F05760FF47906503639F4 /* Pods_MoneyBox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		14A1B4202173CB320083B235 /* GoalCalculationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCalculationsViewController.xib; sourceTree = "<group>"; };
 		14FE5EAA2135CBF6002B4466 /* GoalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsViewController.swift; sourceTree = "<group>"; };
 		14FE5EAB2135CBF6002B4466 /* GoalDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalDetailsViewController.xib; sourceTree = "<group>"; };
+		2833CF54444C1CBE1A4654A9 /* Pods-MoneyBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBox.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBox/Pods-MoneyBox.debug.xcconfig"; sourceTree = "<group>"; };
 		720E9D3C21D77CB300C3F302 /* GoalCalculationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCalculationsPresenter.swift; sourceTree = "<group>"; };
 		720E9D4121D785C400C3F302 /* UIViewController+IProgressDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+IProgressDisplayable.swift"; sourceTree = "<group>"; };
 		720E9D4421D7873400C3F302 /* IProgressDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IProgressDisplayable.swift; sourceTree = "<group>"; };
@@ -174,6 +176,8 @@
 		72ED131522D51B5800265007 /* CoreDataObjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataObjectsManager.swift; sourceTree = "<group>"; };
 		72ED131722D51D6900265007 /* IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IManagedObject.swift; sourceTree = "<group>"; };
 		72ED131A22D52A2800265007 /* NSManagedObjectContext+IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+IManagedObject.swift"; sourceTree = "<group>"; };
+		7F40E3330CA0BB9209150E18 /* Pods-MoneyBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBox.release.xcconfig"; path = "Target Support Files/Pods-MoneyBox/Pods-MoneyBox.release.xcconfig"; sourceTree = "<group>"; };
+		DF1F05760FF47906503639F4 /* Pods_MoneyBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30F4E80786492D4631863EE /* Pods_MoneyBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +299,8 @@
 				148375E52128C55B00C94B58 /* MoneyBox */,
 				148375FA2128C55F00C94B58 /* MoneyBoxTests */,
 				148375E42128C55B00C94B58 /* Products */,
+				365E538B47187C0DA26CA736 /* Pods */,
+				D2D5D1A05B30F6839BC1ED42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -487,6 +494,16 @@
 			path = GoalDetailsViewController;
 			sourceTree = "<group>";
 		};
+		365E538B47187C0DA26CA736 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2833CF54444C1CBE1A4654A9 /* Pods-MoneyBox.debug.xcconfig */,
+				7F40E3330CA0BB9209150E18 /* Pods-MoneyBox.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		720E9D3E21D7859C00C3F302 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +656,14 @@
 			path = ManagedObject;
 			sourceTree = "<group>";
 		};
+		D2D5D1A05B30F6839BC1ED42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF1F05760FF47906503639F4 /* Pods_MoneyBox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -646,9 +671,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 148376002128C55F00C94B58 /* Build configuration list for PBXNativeTarget "MoneyBox" */;
 			buildPhases = (
+				6447DE263FC20F4D888B4C47 /* [CP] Check Pods Manifest.lock */,
 				148375DF2128C55B00C94B58 /* Sources */,
 				148375E02128C55B00C94B58 /* Frameworks */,
 				148375E12128C55B00C94B58 /* Resources */,
+				3073B5EF405B1EE7D8BB5DE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -745,6 +772,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3073B5EF405B1EE7D8BB5DE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyBox/Pods-MoneyBox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyBox/Pods-MoneyBox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBox/Pods-MoneyBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6447DE263FC20F4D888B4C47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyBox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		148375DF2128C55B00C94B58 /* Sources */ = {
@@ -962,6 +1031,7 @@
 		};
 		148376012128C55F00C94B58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2833CF54444C1CBE1A4654A9 /* Pods-MoneyBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -981,6 +1051,7 @@
 		};
 		148376022128C55F00C94B58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F40E3330CA0BB9209150E18 /* Pods-MoneyBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
