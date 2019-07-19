@@ -6,15 +6,19 @@
 //  Copyright © 2019 Sergey Fedorov. All rights reserved.
 //
 
-import UIKit
+import AsyncDisplayKit
 import IGListKit
 import SnapKit
 
-class GoalsViewController: UIViewController, IGoalsOutput {
+class GoalsViewController: ASViewController<ASDisplayNode>, IGoalsOutput {
     
+    enum Constants {
+        static let title = "My goals"
+    }
+
     var onAddGoal: (() -> Void)?
 
-    private let goalsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let goalsCollectionNode = ASCollectionNode(collectionViewLayout: UICollectionViewFlowLayout())
     private lazy var goalsListAdapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
@@ -23,7 +27,11 @@ class GoalsViewController: UIViewController, IGoalsOutput {
     init(presenter: IGoalsInput) {
         self.presenter = presenter
         
-        super.init(nibName: nil, bundle: nil)
+        super.init(node: self.goalsCollectionNode)
+        
+        self.goalsListAdapter.setASDKCollectionNode(self.goalsCollectionNode)
+        self.goalsListAdapter.collectionView = self.goalsCollectionNode.view
+        self.goalsListAdapter.dataSource = self.presenter
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,20 +41,13 @@ class GoalsViewController: UIViewController, IGoalsOutput {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = Constants.title
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
                                                                  action: #selector(openTestMenu))
         
-        self.goalsCollectionView.alwaysBounceVertical = true
-        self.goalsCollectionView.backgroundColor = .purple
-        self.view.addSubview(self.goalsCollectionView)
-        self.goalsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.bottom.equalToSuperview()
-        }
-        
-        self.goalsListAdapter.collectionView = self.goalsCollectionView
-        self.goalsListAdapter.dataSource = self.presenter
+        self.goalsCollectionNode.alwaysBounceVertical = true
+        self.goalsCollectionNode.backgroundColor = .purple
         
         self.presenter.loadGoalContainers()
     }

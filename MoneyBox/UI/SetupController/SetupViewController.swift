@@ -43,8 +43,8 @@ class SetupViewController: UIViewController, SetupOutput {
     }
     
     func showRetriableError(_ error: Error) {
-        self.showAlertView(error: error) {
-            self.presenter.setupPresenter()
-        }
+//        self.showAlertView(error: error) {
+//            self.presenter.setupPresenter()
+//        }
     }
 }

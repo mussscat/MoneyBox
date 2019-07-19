@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
-  - EasyDi (1.4.1)
+  - EasyDi (1.5.0)
   - IGListKit (3.4.0):
     - IGListKit/Default (= 3.4.0)
   - IGListKit/Default (3.4.0):
@@ -50,6 +50,9 @@ PODS:
   - Texture/AssetsLibrary (2.8.1):
     - Texture/Core
   - Texture/Core (2.8.1)
+  - Texture/IGListKit (2.8.1):
+    - IGListKit (~> 3.0)
+    - Texture/Core
   - Texture/MapKit (2.8.1):
     - Texture/Core
   - Texture/Photos (2.8.1):
@@ -72,6 +75,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - TagListView
   - Texture
+  - Texture/IGListKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -92,7 +96,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  EasyDi: 2d345f4d47b98b0054266db6c3a6754d8eaf177c
+  EasyDi: 69f886c8911504d33cb55db4a47648f434feeddd
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
@@ -106,6 +110,6 @@ SPEC CHECKSUMS:
   TagListView: 0c7e9c26b9aff858224ee6b155f5fcacd9e27c83
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
-PODFILE CHECKSUM: c8f662a172f4c8549bc1993a421499b38cdf7933
+PODFILE CHECKSUM: 9c9120524ce4a5eb806f2ba160e864436d85cb29
 
 COCOAPODS: 1.7.2

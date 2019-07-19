@@ -12,7 +12,7 @@ import EasyDi
 
 class ApplicationAssembly: Assembly {
     
-    private lazy var goalsListAssembly: GoalsListAssembly = self.context.assembly()
+    private lazy var goalsListAssembly: GoalsAssembly = self.context.assembly()
     private lazy var onboardingAssembly: OnboardingAssembly = self.context.assembly()
     private lazy var servicesAssembly: ServicesAssembly = self.context.assembly()
     private lazy var setupCoordinatorAssembly: SetupCoordinatorAssembly = self.context.assembly()

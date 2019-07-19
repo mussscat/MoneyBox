@@ -8,9 +8,9 @@
 
 import Foundation
 import IGListKit
-import UIKit
+import AsyncDisplayKit
 
-final class CategorySectionController: ListGenericSectionController<GoalsContainer>, ListAdapterDataSource, ListSupplementaryViewSource {
+final class CategorySectionController: ListGenericSectionController<GoalsContainer>, ASSectionController, ListAdapterDataSource, ListSupplementaryViewSource {
     
     private var container: GoalsContainer?
     private lazy var adapter: ListAdapter = {
@@ -38,18 +38,41 @@ final class CategorySectionController: ListGenericSectionController<GoalsContain
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
+        
+    }
+    
+    func nodeBlockForItem(at index: Int) -> ASCellNodeBlock {
+        let nodeBlock: ASCellNodeBlock = {
+            let nibName = String(describing: EmbeddedCategoryGoalsCell.self)
+            guard let cell = self.collectionContext?.dequeueReusableCell(withNibName: nibName,
+                                                                         bundle: nil,
+                                                                         for: self,
+                                                                         at: index) as? EmbeddedCategoryGoalsCell else {
+                                                                            fatalError()
+            }
+            
+            self.adapter.collectionView = cell.embeddedGoalsCollectionView
+            
+            return cell
+        }
+        
+        return nodeBlock
+    }
+    
+    func nodeForItem(at index: Int) -> ASCellNode {
         let nibName = String(describing: EmbeddedCategoryGoalsCell.self)
         guard let cell = self.collectionContext?.dequeueReusableCell(withNibName: nibName,
                                                                      bundle: nil,
                                                                      for: self,
                                                                      at: index) as? EmbeddedCategoryGoalsCell else {
-            fatalError()
+                                                                        fatalError()
         }
         
         self.adapter.collectionView = cell.embeddedGoalsCollectionView
         
         return cell
     }
+    
     
     override func didUpdate(to object: Any) {
         guard let container = object as? GoalsContainer else {
@@ -85,11 +108,11 @@ final class CategorySectionController: ListGenericSectionController<GoalsContain
     
     func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
         let nibName = String(describing: CategoryHeaderSupplementaryCell.self)
-        guard let view = collectionContext?.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                             for: self,
-                                                                             nibName: nibName,
-                                                                             bundle: nil,
-                                                                             at: index) as? CategoryHeaderSupplementaryCell else {
+        guard let view = self.collectionContext?.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                                  for: self,
+                                                                                  nibName: nibName,
+                                                                                  bundle: nil,
+                                                                                  at: index) as? CategoryHeaderSupplementaryCell else {
                                                                                 fatalError()
         }
         

@@ -17,6 +17,6 @@ protocol IGoalsInput: ListAdapterDataSource {
     func addCurrency()
 }
 
-protocol IGoalsOutput: AnyObject, IProgressDisplayable, AlertViewDisplayable {
+protocol IGoalsOutput: AnyObject, IProgressDisplayable, IAlertViewDisplayable {
     func updateWithContainersLoaded()
 }

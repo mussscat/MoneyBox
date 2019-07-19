@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AsyncDisplayKit
 
-class EmbeddedCategoryGoalsCell: UICollectionViewCell {
+class EmbeddedCategoryGoalsCell: ASCellNode {
     
     @IBOutlet weak var embeddedGoalsCollectionView: UICollectionView!
 

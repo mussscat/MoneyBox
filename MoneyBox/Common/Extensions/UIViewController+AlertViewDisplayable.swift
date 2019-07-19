@@ -1,5 +1,5 @@
 //
-//  UIViewController+AlertViewDisplayable.swift
+//  UIViewController+IAlertViewDisplayable.swift
 //  MoneyBox
 //
 //  Created by Сергей Федоров on 02/03/2019.
@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import UIKit
+import AsyncDisplayKit
 
-extension UIViewController: AlertViewDisplayable {
-    func showAlertView(text: String?, title: String? = nil, completion: (() -> Void)? = nil) {
+extension ASViewController: IAlertViewDisplayable {
+    @objc func showAlertView(text: String?, title: String? = nil, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title,
                                                 message: text,
                                                 preferredStyle: .alert)
@@ -18,12 +18,10 @@ extension UIViewController: AlertViewDisplayable {
             completion?()
         }))
         
-        self.present(alertController,
-                     animated: true,
-                     completion: nil)
+        self.present(alertController, animated: true)
     }
     
-    func showAlertView(error: Error, completion: (() -> Void)? = nil) {
+    @objc func showAlertView(error: Error, completion: (() -> Void)? = nil) {
         self.showAlertView(text: error.localizedDescription, completion: completion)
     }
 }

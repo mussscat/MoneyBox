@@ -14,4 +14,9 @@ enum UserDefaultsKeys: String {
 
 struct GlobalConstants {
     static var userDefaultsKeys = UserDefaultsKeys.self
+    static var ui = UI.self
+}
+
+struct UI {
+    static var defaultDelay = 0.3
 }

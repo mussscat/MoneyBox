@@ -9,6 +9,7 @@ def ui_pods
   pod 'TagListView'
   pod 'IGListKit', '~> 3.0'
   pod 'Texture'
+  pod 'Texture/IGListKit'
   pod 'SnapKit', '~> 5.0.0'
 end
 

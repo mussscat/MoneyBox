@@ -7,8 +7,22 @@
 //
 
 import Foundation
+import AsyncDisplayKit
 
 protocol IProgressDisplayable {
     func showProgress()
     func hideProgress()
 }
+
+extension IProgressDisplayable {
+    func showProgress() {
+        ProgressManager.shared.showProgress()
+    }
+    
+    func hideProgress() {
+        ProgressManager.shared.hideProgress()
+    }
+}
+
+extension UIWindow: IProgressDisplayable {}
+extension ASViewController: IProgressDisplayable {}

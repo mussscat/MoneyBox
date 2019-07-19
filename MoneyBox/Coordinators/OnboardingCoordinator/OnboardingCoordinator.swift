@@ -17,7 +17,7 @@ class OnboardingCoordinator: FlowCoordinator {
         self.assembly = assembly
     }
     
-    private lazy var navigationController = MoneyBoxNavigationCrontroller(rootViewController: self.rootViewController)
+    private lazy var navigationController = MoneyBoxNavigationController(rootViewController: self.rootViewController)
     
     override var initialViewController: UIViewController? {
         return self.navigationController

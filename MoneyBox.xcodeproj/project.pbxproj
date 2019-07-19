@@ -29,7 +29,7 @@
 		1483760B2128C80600C94B58 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1483760A2128C80600C94B58 /* CoreDataStack.swift */; };
 		1491656A2168C260003425D1 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165692168C260003425D1 /* OnboardingAssembly.swift */; };
 		1491656C2168C279003425D1 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656B2168C279003425D1 /* OnboardingCoordinator.swift */; };
-		1491656F2168C398003425D1 /* GoalsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656E2168C398003425D1 /* GoalsListAssembly.swift */; };
+		1491656F2168C398003425D1 /* GoalsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656E2168C398003425D1 /* GoalsAssembly.swift */; };
 		149165712168C3A6003425D1 /* GoalsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165702168C3A6003425D1 /* GoalsCoordinator.swift */; };
 		149165762168C96D003425D1 /* SetupCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165752168C96D003425D1 /* SetupCoordinatorAssembly.swift */; };
 		149165782168C978003425D1 /* SetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165772168C978003425D1 /* SetupCoordinator.swift */; };
@@ -45,17 +45,17 @@
 		14A1B4222173CB320083B235 /* GoalCalculationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A1B4202173CB320083B235 /* GoalCalculationsViewController.xib */; };
 		14FE5EAC2135CBF6002B4466 /* GoalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FE5EAA2135CBF6002B4466 /* GoalDetailsViewController.swift */; };
 		14FE5EAD2135CBF6002B4466 /* GoalDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FE5EAB2135CBF6002B4466 /* GoalDetailsViewController.xib */; };
+		2216160E22E19E2300B41B03 /* ProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216160D22E19E2300B41B03 /* ProgressManager.swift */; };
 		720E9D3D21D77CB300C3F302 /* GoalCalculationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D3C21D77CB300C3F302 /* GoalCalculationsPresenter.swift */; };
-		720E9D4221D785C400C3F302 /* UIViewController+IProgressDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D4121D785C400C3F302 /* UIViewController+IProgressDisplayable.swift */; };
 		720E9D4521D7873400C3F302 /* IProgressDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D4421D7873400C3F302 /* IProgressDisplayable.swift */; };
 		720E9D4721D79D0F00C3F302 /* NSManagedObjectContext+Rollback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D4621D79D0F00C3F302 /* NSManagedObjectContext+Rollback.swift */; };
 		720E9D4C21D7BC2D00C3F302 /* DefaultCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 720E9D4B21D7BC2D00C3F302 /* DefaultCategories.plist */; };
 		72631CF4222B041400FC937A /* GoalCalculationsIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CF3222B041400FC937A /* GoalCalculationsIO.swift */; };
-		72631CF6222B054900FC937A /* AlertViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CF5222B054900FC937A /* AlertViewDisplayable.swift */; };
+		72631CF6222B054900FC937A /* IAlertViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CF5222B054900FC937A /* IAlertViewDisplayable.swift */; };
 		72631CF9222B059300FC937A /* UIViewController+AlertViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CF8222B059300FC937A /* UIViewController+AlertViewDisplayable.swift */; };
 		72631CFB222B0AF900FC937A /* SetupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CFA222B0AF900FC937A /* SetupPresenter.swift */; };
 		72631CFD222B0B0200FC937A /* SetupIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CFC222B0B0200FC937A /* SetupIO.swift */; };
-		72631CFF222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CFE222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift */; };
+		72631CFF222B0BC800FC937A /* MoneyBoxNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72631CFE222B0BC800FC937A /* MoneyBoxNavigationController.swift */; };
 		72631D02222B169B00FC937A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72631D01222B169B00FC937A /* Assets.xcassets */; };
 		7288B23F22DB13BF00CCCE80 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288B23D22DB13BF00CCCE80 /* GoalsViewController.swift */; };
 		7288B24522DB308100CCCE80 /* GoalsIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288B24422DB308100CCCE80 /* GoalsIO.swift */; };
@@ -123,7 +123,7 @@
 		1483760A2128C80600C94B58 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		149165692168C260003425D1 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
 		1491656B2168C279003425D1 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
-		1491656E2168C398003425D1 /* GoalsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListAssembly.swift; sourceTree = "<group>"; };
+		1491656E2168C398003425D1 /* GoalsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsAssembly.swift; sourceTree = "<group>"; };
 		149165702168C3A6003425D1 /* GoalsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCoordinator.swift; sourceTree = "<group>"; };
 		149165752168C96D003425D1 /* SetupCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		149165772168C978003425D1 /* SetupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinator.swift; sourceTree = "<group>"; };
@@ -139,18 +139,18 @@
 		14A1B4202173CB320083B235 /* GoalCalculationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCalculationsViewController.xib; sourceTree = "<group>"; };
 		14FE5EAA2135CBF6002B4466 /* GoalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsViewController.swift; sourceTree = "<group>"; };
 		14FE5EAB2135CBF6002B4466 /* GoalDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalDetailsViewController.xib; sourceTree = "<group>"; };
+		2216160D22E19E2300B41B03 /* ProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressManager.swift; sourceTree = "<group>"; };
 		2833CF54444C1CBE1A4654A9 /* Pods-MoneyBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBox.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBox/Pods-MoneyBox.debug.xcconfig"; sourceTree = "<group>"; };
 		720E9D3C21D77CB300C3F302 /* GoalCalculationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCalculationsPresenter.swift; sourceTree = "<group>"; };
-		720E9D4121D785C400C3F302 /* UIViewController+IProgressDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+IProgressDisplayable.swift"; sourceTree = "<group>"; };
 		720E9D4421D7873400C3F302 /* IProgressDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IProgressDisplayable.swift; sourceTree = "<group>"; };
 		720E9D4621D79D0F00C3F302 /* NSManagedObjectContext+Rollback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Rollback.swift"; sourceTree = "<group>"; };
 		720E9D4B21D7BC2D00C3F302 /* DefaultCategories.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultCategories.plist; sourceTree = "<group>"; };
 		72631CF3222B041400FC937A /* GoalCalculationsIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCalculationsIO.swift; sourceTree = "<group>"; };
-		72631CF5222B054900FC937A /* AlertViewDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewDisplayable.swift; sourceTree = "<group>"; };
+		72631CF5222B054900FC937A /* IAlertViewDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAlertViewDisplayable.swift; sourceTree = "<group>"; };
 		72631CF8222B059300FC937A /* UIViewController+AlertViewDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertViewDisplayable.swift"; sourceTree = "<group>"; };
 		72631CFA222B0AF900FC937A /* SetupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPresenter.swift; sourceTree = "<group>"; };
 		72631CFC222B0B0200FC937A /* SetupIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIO.swift; sourceTree = "<group>"; };
-		72631CFE222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBoxNavigationCrontroller.swift; sourceTree = "<group>"; };
+		72631CFE222B0BC800FC937A /* MoneyBoxNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBoxNavigationController.swift; sourceTree = "<group>"; };
 		72631D01222B169B00FC937A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7288B23D22DB13BF00CCCE80 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		7288B24422DB308100CCCE80 /* GoalsIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsIO.swift; sourceTree = "<group>"; };
@@ -345,13 +345,13 @@
 			path = OnboardingCoordinator;
 			sourceTree = "<group>";
 		};
-		1491656D2168C385003425D1 /* GoalsListCoordinator */ = {
+		1491656D2168C385003425D1 /* GoalsCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				1491656E2168C398003425D1 /* GoalsListAssembly.swift */,
+				1491656E2168C398003425D1 /* GoalsAssembly.swift */,
 				149165702168C3A6003425D1 /* GoalsCoordinator.swift */,
 			);
-			path = GoalsListCoordinator;
+			path = GoalsCoordinator;
 			sourceTree = "<group>";
 		};
 		149165722168C42F003425D1 /* ApplicationCoordinator */ = {
@@ -370,7 +370,7 @@
 				149165722168C42F003425D1 /* ApplicationCoordinator */,
 				149165742168C943003425D1 /* SetupCoordinator */,
 				149165682168C23D003425D1 /* OnboardingCoordinator */,
-				1491656D2168C385003425D1 /* GoalsListCoordinator */,
+				1491656D2168C385003425D1 /* GoalsCoordinator */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -500,7 +500,6 @@
 				2833CF54444C1CBE1A4654A9 /* Pods-MoneyBox.debug.xcconfig */,
 				7F40E3330CA0BB9209150E18 /* Pods-MoneyBox.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -509,8 +508,8 @@
 			children = (
 				720E9D4321D7872000C3F302 /* IProgressDisplayable */,
 				720E9D3F21D785A100C3F302 /* Extensions */,
-				72631CF7222B056900FC937A /* AlertViewDisplayable */,
-				72631D00222B0BD200FC937A /* MoneyBoxNavigationCrontroller */,
+				72631CF7222B056900FC937A /* IAlertViewDisplayable */,
+				72631D00222B0BD200FC937A /* MoneyBoxNavigationController */,
 				72D290CA22383B9800D06F9F /* DatePickerView */,
 			);
 			path = Common;
@@ -519,7 +518,6 @@
 		720E9D3F21D785A100C3F302 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				720E9D4121D785C400C3F302 /* UIViewController+IProgressDisplayable.swift */,
 				720E9D4621D79D0F00C3F302 /* NSManagedObjectContext+Rollback.swift */,
 				72631CF8222B059300FC937A /* UIViewController+AlertViewDisplayable.swift */,
 				7288B24B22DB5DCC00CCCE80 /* PromsieKit+Wrapping.swift */,
@@ -531,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				720E9D4421D7873400C3F302 /* IProgressDisplayable.swift */,
+				2216160D22E19E2300B41B03 /* ProgressManager.swift */,
 			);
 			path = IProgressDisplayable;
 			sourceTree = "<group>";
@@ -543,20 +542,20 @@
 			path = DefaultData;
 			sourceTree = "<group>";
 		};
-		72631CF7222B056900FC937A /* AlertViewDisplayable */ = {
+		72631CF7222B056900FC937A /* IAlertViewDisplayable */ = {
 			isa = PBXGroup;
 			children = (
-				72631CF5222B054900FC937A /* AlertViewDisplayable.swift */,
+				72631CF5222B054900FC937A /* IAlertViewDisplayable.swift */,
 			);
-			path = AlertViewDisplayable;
+			path = IAlertViewDisplayable;
 			sourceTree = "<group>";
 		};
-		72631D00222B0BD200FC937A /* MoneyBoxNavigationCrontroller */ = {
+		72631D00222B0BD200FC937A /* MoneyBoxNavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				72631CFE222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift */,
+				72631CFE222B0BC800FC937A /* MoneyBoxNavigationController.swift */,
 			);
-			path = MoneyBoxNavigationCrontroller;
+			path = MoneyBoxNavigationController;
 			sourceTree = "<group>";
 		};
 		7288B24122DB13C300CCCE80 /* GoalsViewController */ = {
@@ -843,11 +842,12 @@
 				7288B25D22DB9AEF00CCCE80 /* EmbeddedCategoryGoalsCell.swift in Sources */,
 				7288B26122DB9CA100CCCE80 /* CategoryGoalCollectionViewCell.swift in Sources */,
 				149165712168C3A6003425D1 /* GoalsCoordinator.swift in Sources */,
-				1491656F2168C398003425D1 /* GoalsListAssembly.swift in Sources */,
+				1491656F2168C398003425D1 /* GoalsAssembly.swift in Sources */,
 				14FE5EAC2135CBF6002B4466 /* GoalDetailsViewController.swift in Sources */,
 				149165762168C96D003425D1 /* SetupCoordinatorAssembly.swift in Sources */,
 				72631CFD222B0B0200FC937A /* SetupIO.swift in Sources */,
 				14916590216C18C4003425D1 /* GlobalConstants.swift in Sources */,
+				2216160E22E19E2300B41B03 /* ProgressManager.swift in Sources */,
 				72ED131822D51D6900265007 /* IManagedObject.swift in Sources */,
 				72631CF4222B041400FC937A /* GoalCalculationsIO.swift in Sources */,
 				7288B24522DB308100CCCE80 /* GoalsIO.swift in Sources */,
@@ -858,10 +858,9 @@
 				72631CF9222B059300FC937A /* UIViewController+AlertViewDisplayable.swift in Sources */,
 				72E83FE022D0C18D00ABE2D2 /* CurrencyDBO+CoreDataClass.swift in Sources */,
 				14A1B4212173CB320083B235 /* GoalCalculationsViewController.swift in Sources */,
-				72631CFF222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift in Sources */,
+				72631CFF222B0BC800FC937A /* MoneyBoxNavigationController.swift in Sources */,
 				144FD1EE2128D06000F2F08D /* Storage_protocol.swift in Sources */,
 				1491657C2168CE3E003425D1 /* ServicesAssembly.swift in Sources */,
-				720E9D4221D785C400C3F302 /* UIViewController+IProgressDisplayable.swift in Sources */,
 				144FD1F82128D36000F2F08D /* StorageRequest.swift in Sources */,
 				7288B24E22DB8DF300CCCE80 /* GoalsPresenter.swift in Sources */,
 				7288B24722DB310A00CCCE80 /* GoalsContainer.swift in Sources */,
@@ -874,7 +873,7 @@
 				72E83FDD22D0C18D00ABE2D2 /* SavingGoalDBO+CoreDataProperties.swift in Sources */,
 				144FD2092130AE1700F2F08D /* SavingsGoalCategory.swift in Sources */,
 				148375E72128C55B00C94B58 /* AppDelegate.swift in Sources */,
-				72631CF6222B054900FC937A /* AlertViewDisplayable.swift in Sources */,
+				72631CF6222B054900FC937A /* IAlertViewDisplayable.swift in Sources */,
 				1417887121C98E52007638D8 /* Currency.swift in Sources */,
 				7288B25022DB968300CCCE80 /* CategorySectionController.swift in Sources */,
 				720E9D4521D7873400C3F302 /* IProgressDisplayable.swift in Sources */,

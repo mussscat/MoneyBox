@@ -12,7 +12,7 @@ enum GoalCalculationsPresenterError: Error {
     case couldNotLoadCategoriesList
 }
 
-protocol IGoalCalculationsOutput: AnyObject, IProgressDisplayable, AlertViewDisplayable {
+protocol IGoalCalculationsOutput: AnyObject, IProgressDisplayable, IAlertViewDisplayable {
     func updateWithCategories(_ categories: [SavingsGoalCategory])
     func updateWithSavingsGoal()
 }

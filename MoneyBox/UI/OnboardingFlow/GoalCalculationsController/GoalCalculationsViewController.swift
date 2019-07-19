@@ -11,6 +11,10 @@ import TagListView
 
 class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGoalCalculationsOutput, TagListViewDelegate {
     
+    func showAlertView(error: Error, completion: (() -> Void)?) { }
+    
+    func showAlertView(text: String?, title: String? = nil, completion: (() -> Void)? = nil) { }
+    
     struct GoalCalculationsModel {
         var category: SavingsGoalCategory
         var deadline: Date

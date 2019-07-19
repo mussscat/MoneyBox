@@ -7,17 +7,17 @@
 //
 
 import Foundation
-import UIKit
+import AsyncDisplayKit
 
 class GoalsCoordinator: FlowCoordinator {
     
-    private let assembly: GoalsListAssembly
+    private let assembly: GoalsAssembly
     
-    init(assembly: GoalsListAssembly) {
+    init(assembly: GoalsAssembly) {
         self.assembly = assembly
     }
     
-    private lazy var navigationController = MoneyBoxNavigationCrontroller(rootViewController: self.rootViewController)
+    private lazy var navigationController = MoneyBoxNavigationController(rootViewController: self.rootViewController)
     
     override var initialViewController: UIViewController? {
         return self.navigationController
@@ -32,10 +32,6 @@ class GoalsCoordinator: FlowCoordinator {
     }()
     
     private func startAddGoalFlow() {
-        let coordinator = self.assembly.onboardingCoordinator()
-        coordinator.onSuccess = { [weak self] in
-            self?.rootViewController.updateWithContainersLoaded()
-        }
-        self.startFlowCoordinator(coordinator)
+        
     }
 }

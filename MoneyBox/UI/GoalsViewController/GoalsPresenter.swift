@@ -8,6 +8,7 @@
 
 import Foundation
 import IGListKit
+import AsyncDisplayKit
 
 enum GoalsPresenterError: Error {
     case loadGoalContainersFailed
@@ -45,11 +46,18 @@ class GoalsPresenter: NSObject, IGoalsInput, ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+        guard object is GoalsContainer else {
+            fatalError("Only containers supported for now")
+        }
+        
         return CategorySectionController()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
+        let node = ASDisplayNode()
+        node.backgroundColor = .purple
+        
+        return node.view
     }
     
     // TEST

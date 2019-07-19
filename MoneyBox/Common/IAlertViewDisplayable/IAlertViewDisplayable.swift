@@ -1,5 +1,5 @@
 //
-//  AlertViewDisplayable.swift
+//  IAlertViewDisplayable.swift
 //  MoneyBox
 //
 //  Created by Сергей Федоров on 02/03/2019.
@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-protocol AlertViewDisplayable {
+protocol IAlertViewDisplayable {
     func showAlertView(text: String?, title: String?, completion: (() -> Void)?)
     func showAlertView(error: Error, completion: (() -> Void)?)
 }
 
-extension AlertViewDisplayable {
+extension IAlertViewDisplayable {
     func showAlertView(text: String?, title: String? = nil, completion: (() -> Void)? = nil) {
         self.showAlertView(text: text, title: title, completion: completion)
     }
