@@ -11,8 +11,6 @@ import UIKit
 
 class OnboardingCoordinator: FlowCoordinator {
     
-    var onSuccess: (() -> Void)?
-    
     private let assembly: OnboardingAssembly
     
     init(assembly: OnboardingAssembly) {

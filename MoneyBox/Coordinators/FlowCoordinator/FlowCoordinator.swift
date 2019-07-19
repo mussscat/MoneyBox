@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 class FlowCoordinator {
+    var onSuccess: (() -> Void)?
+    var onCancel: (() -> Void)?
+    
     private var onFlowFinished: (() -> Void)?
     private var childCoordinators: [FlowCoordinator] = []
     
@@ -94,7 +97,8 @@ class FlowCoordinator {
     }
     
     /// Call it when flow is completed. If you provide `initialViewController`, flow will be dismissed by FlowCoordinator.
-    func finishFlowWithSuccess(_: Bool) {
+    func finishFlowWithSuccess(_ success: Bool) {
+        success ? self.onSuccess?() : self.onCancel?()
         self.onFlowFinished?()
     }
 }

@@ -14,8 +14,8 @@ class GoalsListAssembly: Assembly {
     private lazy var storageAssembly: StorageAssembly = self.context.assembly()
     private lazy var onboardingAssembly: OnboardingAssembly = self.context.assembly()
     
-    func coordinator() -> GoalsListCoordinator {
-        return define(scope: .prototype, init: GoalsListCoordinator(assembly: self))
+    func coordinator() -> GoalsCoordinator {
+        return define(scope: .prototype, init: GoalsCoordinator(assembly: self))
     }
     
     func goalsViewController() -> GoalsViewController {

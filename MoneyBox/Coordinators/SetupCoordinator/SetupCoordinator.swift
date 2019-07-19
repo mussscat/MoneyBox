@@ -11,8 +11,6 @@ import UIKit
 
 class SetupCoordinator: FlowCoordinator {
     
-    var onSuccess: (() -> Void)?
-    
     private let assembly: SetupCoordinatorAssembly
     
     init(assembly: SetupCoordinatorAssembly) {
@@ -22,7 +20,7 @@ class SetupCoordinator: FlowCoordinator {
     private lazy var rootViewController: SetupViewController = {
         let controller = self.assembly.setupViewController()
         controller.onLoadingSucceeded = { [weak self] in
-            self?.onSuccess?()
+            self?.finishFlowWithSuccess(true)
         }
         return controller
     }()

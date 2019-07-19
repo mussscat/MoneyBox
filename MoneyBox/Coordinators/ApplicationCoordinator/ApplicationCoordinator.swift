@@ -27,18 +27,8 @@ class ApplicationCoordinator: FlowCoordinator {
     private func setupApplicationSettings() {
         let setupCoordinator = self.assembly.setupCoordinator()
         setupCoordinator.onSuccess = { [weak self, weak setupCoordinator] in
-            guard let `self` = self else {
-                assertionFailure()
-                return
-            }
-            
-            self.removeDependency(setupCoordinator)
-
-            if self.hasOnboardingBeenShown() {
-                self.showGoalsList()
-            } else {
-                self.showOnboarding()
-            }
+            self?.removeDependency(setupCoordinator)
+            self?.showGoalsList()
         }
         
         self.startFlowCoordinator(setupCoordinator)

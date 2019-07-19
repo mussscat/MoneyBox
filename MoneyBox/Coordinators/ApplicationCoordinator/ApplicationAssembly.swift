@@ -40,7 +40,7 @@ class ApplicationAssembly: Assembly {
         return self.onboardingAssembly.coordinator()
     }
     
-    func goalsListCoordinator() -> GoalsListCoordinator {
+    func goalsListCoordinator() -> GoalsCoordinator {
         return self.goalsListAssembly.coordinator()
     }
     

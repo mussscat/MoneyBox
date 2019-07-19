@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,7 +30,7 @@
 		1491656A2168C260003425D1 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165692168C260003425D1 /* OnboardingAssembly.swift */; };
 		1491656C2168C279003425D1 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656B2168C279003425D1 /* OnboardingCoordinator.swift */; };
 		1491656F2168C398003425D1 /* GoalsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656E2168C398003425D1 /* GoalsListAssembly.swift */; };
-		149165712168C3A6003425D1 /* GoalsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165702168C3A6003425D1 /* GoalsListCoordinator.swift */; };
+		149165712168C3A6003425D1 /* GoalsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165702168C3A6003425D1 /* GoalsCoordinator.swift */; };
 		149165762168C96D003425D1 /* SetupCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165752168C96D003425D1 /* SetupCoordinatorAssembly.swift */; };
 		149165782168C978003425D1 /* SetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165772168C978003425D1 /* SetupCoordinator.swift */; };
 		1491657A2168CBC7003425D1 /* StorageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165792168CBC7003425D1 /* StorageAssembly.swift */; };
@@ -124,7 +124,7 @@
 		149165692168C260003425D1 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
 		1491656B2168C279003425D1 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		1491656E2168C398003425D1 /* GoalsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListAssembly.swift; sourceTree = "<group>"; };
-		149165702168C3A6003425D1 /* GoalsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListCoordinator.swift; sourceTree = "<group>"; };
+		149165702168C3A6003425D1 /* GoalsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCoordinator.swift; sourceTree = "<group>"; };
 		149165752168C96D003425D1 /* SetupCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		149165772168C978003425D1 /* SetupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinator.swift; sourceTree = "<group>"; };
 		149165792168CBC7003425D1 /* StorageAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAssembly.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				1491656E2168C398003425D1 /* GoalsListAssembly.swift */,
-				149165702168C3A6003425D1 /* GoalsListCoordinator.swift */,
+				149165702168C3A6003425D1 /* GoalsCoordinator.swift */,
 			);
 			path = GoalsListCoordinator;
 			sourceTree = "<group>";
@@ -402,9 +402,9 @@
 		1491657F2168D137003425D1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				14916586216BE57B003425D1 /* SetupController */,
 				14A1B41A2173CA8B0083B235 /* OperationResultController */,
 				14A1B4162173C9E40083B235 /* OnboardingFlow */,
-				14916586216BE57B003425D1 /* SetupController */,
 				14FE5EA92135CBCB002B4466 /* GoalDetailsViewController */,
 				148375EF2128C55F00C94B58 /* LaunchScreen.storyboard */,
 				7288B24122DB13C300CCCE80 /* GoalsViewController */,
@@ -796,31 +796,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyBox/Pods-MoneyBox-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EasyDi/EasyDi.framework",
-				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyBox/Pods-MoneyBox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyDi.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyBox/Pods-MoneyBox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -856,7 +837,7 @@
 				144FD20B2130AE2A00F2F08D /* SavingsGoal.swift in Sources */,
 				7288B25D22DB9AEF00CCCE80 /* EmbeddedCategoryGoalsCell.swift in Sources */,
 				7288B26122DB9CA100CCCE80 /* CategoryGoalCollectionViewCell.swift in Sources */,
-				149165712168C3A6003425D1 /* GoalsListCoordinator.swift in Sources */,
+				149165712168C3A6003425D1 /* GoalsCoordinator.swift in Sources */,
 				1491656F2168C398003425D1 /* GoalsListAssembly.swift in Sources */,
 				14FE5EAC2135CBF6002B4466 /* GoalDetailsViewController.swift in Sources */,
 				149165762168C96D003425D1 /* SetupCoordinatorAssembly.swift in Sources */,

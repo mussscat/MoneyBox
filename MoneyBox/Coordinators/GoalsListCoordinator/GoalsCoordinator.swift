@@ -1,5 +1,5 @@
 //
-//  GoalsListCoordinator.swift
+//  GoalsCoordinator.swift
 //  MoneyBox
 //
 //  Created by Сергей Федоров on 06.10.2018.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class GoalsListCoordinator: FlowCoordinator {
+class GoalsCoordinator: FlowCoordinator {
     
     private let assembly: GoalsListAssembly
     
