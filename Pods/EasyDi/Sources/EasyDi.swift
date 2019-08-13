@@ -267,7 +267,7 @@ open class Assembly: AssemblyInternal {
             key: key,
             definitionKey: definitionKey,
             scope: scope,
-            init: initClosure(),
+            init: initClosure,
             inject: injectClosure
         )
     }
