@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MBStorage
 
 public class SavingsGoalService: ISavingsGoalService {
     

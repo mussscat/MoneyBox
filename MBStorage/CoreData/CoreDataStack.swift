@@ -13,18 +13,18 @@ public class CoreDataStack: ICoreDataStack {
     
     private enum Constants {
         static let dbExtension = "momd"
-        static let dispatchQueueLabel = "com.moneybox.coreData"
     }
     
     private var persistentStoreContainer: NSPersistentContainer?
-    private let dispatchQueue = DispatchQueue(label: Constants.dispatchQueueLabel)
     
     private let dbName: String
     private let bundle: Bundle
+    private let storeType: String
     
-    public init(dbName: String, bundle: Bundle) {
+    public init(dbName: String, bundle: Bundle, storeType: String = NSSQLiteStoreType) {
         self.dbName = dbName
         self.bundle = bundle
+        self.storeType = storeType
     }
     
     // MARK: CoreDataStack protocol implementation
@@ -39,22 +39,24 @@ public class CoreDataStack: ICoreDataStack {
     }
     
     public func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void)) {
-        self.dispatchQueue.async {
-            let result = self.unsafeExecuteSyncTransaction(transaction)
-            switch result {
-            case let .success(value):
-                DispatchQueue.main.async {
-                    completion(.success(value))
-                }
-            case .failure:
-                DispatchQueue.main.async {
-                    completion(.failure(CoreDataStackError.executeAsyncTransactionFailed))
-                }
-            }
+        let result = self.executeSyncTransaction(transaction)
+        switch result {
+        case let .success(value):
+            completion(.success(value))
+        case .failure:
+            completion(.failure(CoreDataStackError.executeAsyncTransactionFailed))
         }
     }
     
-    private func unsafeExecuteSyncTransaction<T>(_ transaction: @escaping (NSManagedObjectContext) throws -> T) -> Result<T, Error> {
+    public func executeSync<T>(_ transaction: @escaping (NSManagedObjectContext) throws -> T) throws -> T {
+        let result = self.executeSyncTransaction(transaction)
+        switch result {
+        case let .success(value): return value
+        case .failure: throw CoreDataStackError.executeSyncFailed
+        }
+    }
+    
+    public func executeSyncTransaction<T>(_ transaction: @escaping (NSManagedObjectContext) throws -> T) -> Result<T, Error> {
         do {
             let context = try self.getBackgroundContext()
             var result = Result<T, Error>.failure(CoreDataStackError.executeSyncTransactionFailed)
@@ -73,7 +75,7 @@ public class CoreDataStack: ICoreDataStack {
             
             return result
         } catch {
-            return .failure(CoreDataStackError.unsafeExecuteSyncTransactionFailed)
+            return .failure(CoreDataStackError.executeSyncTransactionFailed)
         }
     }
     
@@ -126,6 +128,11 @@ public class CoreDataStack: ICoreDataStack {
             throw CoreDataStackError.persistentContainerInitFailed
         }
         
-        return NSPersistentContainer(name: self.dbName, managedObjectModel: model)
+        let container = NSPersistentContainer(name: self.dbName, managedObjectModel: model)
+        let description = NSPersistentStoreDescription()
+        description.type = self.storeType
+        container.persistentStoreDescriptions = [description]
+        
+        return container
     }
 }

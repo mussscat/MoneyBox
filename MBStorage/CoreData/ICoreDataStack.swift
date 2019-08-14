@@ -19,11 +19,12 @@ public enum CoreDataStackError: Error {
     case executeFetchRequestFailed
     case executeAsyncTransactionFailed
     case executeSyncTransactionFailed
-    case unsafeExecuteSyncTransactionFailed
+    case executeSyncFailed
 }
 
 public protocol ICoreDataStack {
     func execute<T: NSManagedObject>(_ fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) throws -> [T]
     func execute<T>(transaction: @escaping ((NSManagedObjectContext) throws -> T), completion: @escaping ((Result<T, Error>) -> Void))
+    func executeSync<T>(_ transaction: @escaping (NSManagedObjectContext) throws -> T) throws -> T
     func setupStack(completion: ((Result<Void, Error>) -> Void)?)
 }

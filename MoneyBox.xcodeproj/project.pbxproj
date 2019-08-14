@@ -3,17 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1417887121C98E52007638D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417887021C98E52007638D8 /* Currency.swift */; };
 		144FD1EB2128D03400F2F08D /* MoneyBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1E92128D03400F2F08D /* MoneyBox.xcdatamodeld */; };
-		144FD1EE2128D06000F2F08D /* Storage_protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1ED2128D06000F2F08D /* Storage_protocol.swift */; };
-		144FD1F02128D06C00F2F08D /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1EF2128D06C00F2F08D /* Storage.swift */; };
-		144FD1F32128D11900F2F08D /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1F22128D11900F2F08D /* Convertible.swift */; };
-		144FD1F52128D13200F2F08D /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1F42128D13200F2F08D /* Identifiable.swift */; };
-		144FD1F82128D36000F2F08D /* StorageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1F72128D36000F2F08D /* StorageRequest.swift */; };
 		144FD1FA2129FFB200F2F08D /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1F92129FFB100F2F08D /* LocalNotificationsService.swift */; };
 		144FD1FE212E0FD700F2F08D /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1FD212E0FD700F2F08D /* FlowCoordinator.swift */; };
 		144FD200212E10C800F2F08D /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1FF212E10C800F2F08D /* ApplicationCoordinator.swift */; };
@@ -29,16 +24,13 @@
 		148375E72128C55B00C94B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148375E62128C55B00C94B58 /* AppDelegate.swift */; };
 		148375F12128C55F00C94B58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148375EF2128C55F00C94B58 /* LaunchScreen.storyboard */; };
 		148375FC2128C55F00C94B58 /* MoneyBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148375FB2128C55F00C94B58 /* MoneyBoxTests.swift */; };
-		148376072128C62600C94B58 /* CoreDataStack_protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148376062128C62600C94B58 /* CoreDataStack_protocol.swift */; };
 		148376092128C6F500C94B58 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148376082128C6F500C94B58 /* Result.swift */; };
-		1483760B2128C80600C94B58 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1483760A2128C80600C94B58 /* CoreDataStack.swift */; };
 		1491656A2168C260003425D1 /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165692168C260003425D1 /* OnboardingAssembly.swift */; };
 		1491656C2168C279003425D1 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656B2168C279003425D1 /* OnboardingCoordinator.swift */; };
 		1491656F2168C398003425D1 /* GoalsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491656E2168C398003425D1 /* GoalsListAssembly.swift */; };
 		149165712168C3A6003425D1 /* GoalsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165702168C3A6003425D1 /* GoalsListCoordinator.swift */; };
 		149165762168C96D003425D1 /* SetupCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165752168C96D003425D1 /* SetupCoordinatorAssembly.swift */; };
 		149165782168C978003425D1 /* SetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165772168C978003425D1 /* SetupCoordinator.swift */; };
-		1491657A2168CBC7003425D1 /* StorageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149165792168CBC7003425D1 /* StorageAssembly.swift */; };
 		1491657C2168CE3E003425D1 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1491657B2168CE3E003425D1 /* ServicesAssembly.swift */; };
 		14916589216BE598003425D1 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14916587216BE598003425D1 /* SetupViewController.swift */; };
 		1491658A216BE598003425D1 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14916588216BE598003425D1 /* SetupViewController.xib */; };
@@ -53,6 +45,9 @@
 		14FEC5B6213C72CA00279C80 /* GoalsListCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FEC5B5213C72CA00279C80 /* GoalsListCollectionViewLayout.swift */; };
 		14FEC5BA213C776700279C80 /* GoalsListHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FEC5B8213C776700279C80 /* GoalsListHeaderReusableView.swift */; };
 		14FEC5BB213C776700279C80 /* GoalsListHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FEC5B9213C776700279C80 /* GoalsListHeaderReusableView.xib */; };
+		228C71972302AFC500F73F0E /* MBStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228C71922302AFB300F73F0E /* MBStorage.framework */; };
+		228C71982302AFC500F73F0E /* MBStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 228C71922302AFB300F73F0E /* MBStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		228C719E2302B16800F73F0E /* StorageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C719D2302B16800F73F0E /* StorageAssembly.swift */; };
 		720E9D3D21D77CB300C3F302 /* GoalCalculationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D3C21D77CB300C3F302 /* GoalCalculationsPresenter.swift */; };
 		720E9D4221D785C400C3F302 /* UIViewController+IProgressDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D4121D785C400C3F302 /* UIViewController+IProgressDisplayable.swift */; };
 		720E9D4521D7873400C3F302 /* IProgressDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E9D4421D7873400C3F302 /* IProgressDisplayable.swift */; };
@@ -78,16 +73,53 @@
 			remoteGlobalIDString = 148375E22128C55B00C94B58;
 			remoteInfo = MoneyBox;
 		};
+		228C71912302AFB300F73F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 228C71562302AEB400F73F0E;
+			remoteInfo = MBStorage;
+		};
+		228C71932302AFB300F73F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 228C715F2302AEB400F73F0E;
+			remoteInfo = MBStorageTests;
+		};
+		228C71952302AFBC00F73F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 228C71552302AEB400F73F0E;
+			remoteInfo = MBStorage;
+		};
+		228C71992302AFC600F73F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 228C71552302AEB400F73F0E;
+			remoteInfo = MBStorage;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		228C719B2302AFC600F73F0E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				228C71982302AFC500F73F0E /* MBStorage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1417887021C98E52007638D8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		144FD1EA2128D03400F2F08D /* MoneyBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyBox.xcdatamodel; sourceTree = "<group>"; };
-		144FD1ED2128D06000F2F08D /* Storage_protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage_protocol.swift; sourceTree = "<group>"; };
-		144FD1EF2128D06C00F2F08D /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		144FD1F22128D11900F2F08D /* Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
-		144FD1F42128D13200F2F08D /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
-		144FD1F72128D36000F2F08D /* StorageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRequest.swift; sourceTree = "<group>"; };
 		144FD1F92129FFB100F2F08D /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 		144FD1FD212E0FD700F2F08D /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		144FD1FF212E10C800F2F08D /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
@@ -107,16 +139,13 @@
 		148375F72128C55F00C94B58 /* MoneyBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		148375FB2128C55F00C94B58 /* MoneyBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBoxTests.swift; sourceTree = "<group>"; };
 		148375FD2128C55F00C94B58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		148376062128C62600C94B58 /* CoreDataStack_protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack_protocol.swift; sourceTree = "<group>"; };
 		148376082128C6F500C94B58 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		1483760A2128C80600C94B58 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		149165692168C260003425D1 /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
 		1491656B2168C279003425D1 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		1491656E2168C398003425D1 /* GoalsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListAssembly.swift; sourceTree = "<group>"; };
 		149165702168C3A6003425D1 /* GoalsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListCoordinator.swift; sourceTree = "<group>"; };
 		149165752168C96D003425D1 /* SetupCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		149165772168C978003425D1 /* SetupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinator.swift; sourceTree = "<group>"; };
-		149165792168CBC7003425D1 /* StorageAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAssembly.swift; sourceTree = "<group>"; };
 		1491657B2168CE3E003425D1 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
 		14916587216BE598003425D1 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		14916588216BE598003425D1 /* SetupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
@@ -131,6 +160,8 @@
 		14FEC5B5213C72CA00279C80 /* GoalsListCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListCollectionViewLayout.swift; sourceTree = "<group>"; };
 		14FEC5B8213C776700279C80 /* GoalsListHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListHeaderReusableView.swift; sourceTree = "<group>"; };
 		14FEC5B9213C776700279C80 /* GoalsListHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalsListHeaderReusableView.xib; sourceTree = "<group>"; };
+		228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBStorage.xcodeproj; path = MBStorage/MBStorage.xcodeproj; sourceTree = "<group>"; };
+		228C719D2302B16800F73F0E /* StorageAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAssembly.swift; sourceTree = "<group>"; };
 		26863B0EE88B2EE86F159492 /* Pods_MoneyBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720E9D3C21D77CB300C3F302 /* GoalCalculationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCalculationsPresenter.swift; sourceTree = "<group>"; };
 		720E9D4121D785C400C3F302 /* UIViewController+IProgressDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+IProgressDisplayable.swift"; sourceTree = "<group>"; };
@@ -156,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90C046C9B60A5A02313E52D8 /* Pods_MoneyBox.framework in Frameworks */,
+				228C71972302AFC500F73F0E /* MBStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,49 +201,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		144FD1E82128D00000F2F08D /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				148376062128C62600C94B58 /* CoreDataStack_protocol.swift */,
-				1483760A2128C80600C94B58 /* CoreDataStack.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
 		144FD1EC2128D04200F2F08D /* Result */ = {
 			isa = PBXGroup;
 			children = (
 				148376082128C6F500C94B58 /* Result.swift */,
 			);
 			path = Result;
-			sourceTree = "<group>";
-		};
-		144FD1F12128D07200F2F08D /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				149165792168CBC7003425D1 /* StorageAssembly.swift */,
-				144FD1ED2128D06000F2F08D /* Storage_protocol.swift */,
-				144FD1EF2128D06C00F2F08D /* Storage.swift */,
-				144FD1F72128D36000F2F08D /* StorageRequest.swift */,
-				144FD1F62128D13700F2F08D /* PONSO protocols */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		144FD1F62128D13700F2F08D /* PONSO protocols */ = {
-			isa = PBXGroup;
-			children = (
-				144FD1F22128D11900F2F08D /* Convertible.swift */,
-			);
-			path = "PONSO protocols";
-			sourceTree = "<group>";
-		};
-		144FD1FB212A051F00F2F08D /* Identifiable */ = {
-			isa = PBXGroup;
-			children = (
-				144FD1F42128D13200F2F08D /* Identifiable.swift */,
-			);
-			path = Identifiable;
 			sourceTree = "<group>";
 		};
 		144FD1FC212A053800F2F08D /* LocalNotificationsService */ = {
@@ -284,6 +279,7 @@
 		148375DA2128C55B00C94B58 = {
 			isa = PBXGroup;
 			children = (
+				228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */,
 				148375E52128C55B00C94B58 /* MoneyBox */,
 				148375FA2128C55F00C94B58 /* MoneyBoxTests */,
 				148375E42128C55B00C94B58 /* Products */,
@@ -377,9 +373,6 @@
 			children = (
 				1491658E216C18AE003425D1 /* Constants */,
 				1491658B216BE8D6003425D1 /* CommonExtensions */,
-				144FD1F12128D07200F2F08D /* Storage */,
-				144FD1E82128D00000F2F08D /* CoreData */,
-				144FD1FB212A051F00F2F08D /* Identifiable */,
 				144FD2072130ADEF00F2F08D /* Entities */,
 				144FD1EC2128D04200F2F08D /* Result */,
 			);
@@ -498,13 +491,29 @@
 			path = GoalsListHeaderView;
 			sourceTree = "<group>";
 		};
+		228C718D2302AFB300F73F0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				228C71922302AFB300F73F0E /* MBStorage.framework */,
+				228C71942302AFB300F73F0E /* MBStorageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		228C719C2302B14F00F73F0E /* CoreAssemblies */ = {
+			isa = PBXGroup;
+			children = (
+				228C719D2302B16800F73F0E /* StorageAssembly.swift */,
+			);
+			path = CoreAssemblies;
+			sourceTree = "<group>";
+		};
 		2FD8E9C1BDA5FB9591D8EB87 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				8F97B30667302580032B6870 /* Pods-MoneyBox.debug.xcconfig */,
 				F49B8A54CAA17C1828D3BF48 /* Pods-MoneyBox.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -519,6 +528,7 @@
 		720E9D3E21D7859C00C3F302 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				228C719C2302B14F00F73F0E /* CoreAssemblies */,
 				720E9D4321D7872000C3F302 /* IProgressDisplayable */,
 				720E9D3F21D785A100C3F302 /* Extensions */,
 				72631CF7222B056900FC937A /* AlertViewDisplayable */,
@@ -591,10 +601,13 @@
 				148375E02128C55B00C94B58 /* Frameworks */,
 				148375E12128C55B00C94B58 /* Resources */,
 				A88408764FCF7676E58DA803 /* [CP] Embed Pods Frameworks */,
+				228C719B2302AFC600F73F0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				228C71962302AFBC00F73F0E /* PBXTargetDependency */,
+				228C719A2302AFC600F73F0E /* PBXTargetDependency */,
 			);
 			name = MoneyBox;
 			productName = MoneyBox;
@@ -651,6 +664,12 @@
 			mainGroup = 148375DA2128C55B00C94B58;
 			productRefGroup = 148375E42128C55B00C94B58 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 228C718D2302AFB300F73F0E /* Products */;
+					ProjectRef = 228C718C2302AFB300F73F0E /* MBStorage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				148375E22128C55B00C94B58 /* MoneyBox */,
@@ -658,6 +677,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		228C71922302AFB300F73F0E /* MBStorage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MBStorage.framework;
+			remoteRef = 228C71912302AFB300F73F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		228C71942302AFB300F73F0E /* MBStorageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MBStorageTests.xctest;
+			remoteRef = 228C71932302AFB300F73F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		148375E12128C55B00C94B58 /* Resources */ = {
@@ -735,17 +771,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A1B41D2173CAF90083B235 /* ShortGoalInformationInputViewController.swift in Sources */,
-				1483760B2128C80600C94B58 /* CoreDataStack.swift in Sources */,
 				72631CFB222B0AF900FC937A /* SetupPresenter.swift in Sources */,
-				148376072128C62600C94B58 /* CoreDataStack_protocol.swift in Sources */,
 				144FD1FE212E0FD700F2F08D /* FlowCoordinator.swift in Sources */,
 				1491656C2168C279003425D1 /* OnboardingCoordinator.swift in Sources */,
 				144FD206212FD41E00F2F08D /* ApplicationAssembly.swift in Sources */,
 				144FD20F2130B7DB00F2F08D /* SavingsGoalService_protocol.swift in Sources */,
-				144FD1F32128D11900F2F08D /* Convertible.swift in Sources */,
 				1491656A2168C260003425D1 /* OnboardingAssembly.swift in Sources */,
 				144FD200212E10C800F2F08D /* ApplicationCoordinator.swift in Sources */,
-				144FD1F52128D13200F2F08D /* Identifiable.swift in Sources */,
 				144FD20B2130AE2A00F2F08D /* SavingsGoal.swift in Sources */,
 				149165712168C3A6003425D1 /* GoalsListCoordinator.swift in Sources */,
 				144FD2142133390800F2F08D /* GoalsListViewController.swift in Sources */,
@@ -764,13 +796,11 @@
 				72631CF9222B059300FC937A /* UIViewController+AlertViewDisplayable.swift in Sources */,
 				14A1B4212173CB320083B235 /* GoalCalculationsViewController.swift in Sources */,
 				72631CFF222B0BC800FC937A /* MoneyBoxNavigationCrontroller.swift in Sources */,
-				144FD1EE2128D06000F2F08D /* Storage_protocol.swift in Sources */,
 				1491657C2168CE3E003425D1 /* ServicesAssembly.swift in Sources */,
 				720E9D4221D785C400C3F302 /* UIViewController+IProgressDisplayable.swift in Sources */,
-				144FD1F82128D36000F2F08D /* StorageRequest.swift in Sources */,
 				149165782168C978003425D1 /* SetupCoordinator.swift in Sources */,
 				148376092128C6F500C94B58 /* Result.swift in Sources */,
-				144FD1F02128D06C00F2F08D /* Storage.swift in Sources */,
+				228C719E2302B16800F73F0E /* StorageAssembly.swift in Sources */,
 				144FD2112130B7F100F2F08D /* SavingsGoalService.swift in Sources */,
 				144FD1EB2128D03400F2F08D /* MoneyBox.xcdatamodeld in Sources */,
 				144FD2092130AE1700F2F08D /* SavingsGoalCategory.swift in Sources */,
@@ -780,7 +810,6 @@
 				720E9D4521D7873400C3F302 /* IProgressDisplayable.swift in Sources */,
 				14FEC5BA213C776700279C80 /* GoalsListHeaderReusableView.swift in Sources */,
 				72D290C922383B9400D06F9F /* DatePickerView.swift in Sources */,
-				1491657A2168CBC7003425D1 /* StorageAssembly.swift in Sources */,
 				14916589216BE598003425D1 /* SetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,6 +829,16 @@
 			isa = PBXTargetDependency;
 			target = 148375E22128C55B00C94B58 /* MoneyBox */;
 			targetProxy = 148375F82128C55F00C94B58 /* PBXContainerItemProxy */;
+		};
+		228C71962302AFBC00F73F0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBStorage;
+			targetProxy = 228C71952302AFBC00F73F0E /* PBXContainerItemProxy */;
+		};
+		228C719A2302AFC600F73F0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBStorage;
+			targetProxy = 228C71992302AFC600F73F0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

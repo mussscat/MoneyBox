@@ -9,9 +9,9 @@
 import Foundation
 import CoreData
 
-typealias PlainObject = Convertible & Identifiable
+public typealias PlainObject = Convertible & Identifiable
 
-protocol Convertible {
+public protocol Convertible {
     associatedtype DBObjectType: NSManagedObject
     
     func updateDatabaseObject(_ object: DBObjectType)

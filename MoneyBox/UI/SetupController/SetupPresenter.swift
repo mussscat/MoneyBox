@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MBStorage
 
 class SetupPresenter: SetupInput {
     

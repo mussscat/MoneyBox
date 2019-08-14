@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoryEntity" representedClassName="CategoryEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="test_rel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TestEntity" inverseName="category_rel" inverseEntity="TestEntity" syncable="YES"/>
+    </entity>
+    <entity name="CurrencyEntity" representedClassName="CurrencyEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="test_rel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TestEntity" inverseName="currency_rel" inverseEntity="TestEntity" syncable="YES"/>
+    </entity>
+    <entity name="TestEntity" representedClassName="TestEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doubleValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="test_rel" inverseEntity="CategoryEntity" syncable="YES"/>
+        <relationship name="currency_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CurrencyEntity" inverseName="test_rel" inverseEntity="CurrencyEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TestEntity" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="CategoryEntity" positionX="-63" positionY="9" width="128" height="90"/>
+        <element name="CurrencyEntity" positionX="-54" positionY="18" width="128" height="90"/>
+    </elements>
+</model>

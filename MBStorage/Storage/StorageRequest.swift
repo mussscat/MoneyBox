@@ -9,20 +9,25 @@
 import Foundation
 import CoreData
 
-class StorageRequest<T: PlainObject> {
-    var predicate: NSPredicate?
-    var sortDescriptors: [NSSortDescriptor]?
-    var objectsLimit: Int = 0
+public class StorageRequest<T: PlainObject> {
+    public var predicate: NSPredicate?
+    public var sortDescriptors: [NSSortDescriptor]?
+    public var objectsLimit: Int = 0
     
-    init() { }
+    public init() { }
     
-    init(identifier: T.Identifier) {
+    public init(identifier: T.Identifier) {
         self.predicate = NSPredicate(format: "identifier = %@",
                                      argumentArray: [identifier])
         self.objectsLimit = 1
     }
     
-    func createFetchRequest() -> NSFetchRequest<T.DBObjectType> {
+    public init(identifiers: [T.Identifier]) {
+        self.predicate = NSPredicate(format: "identifier IN %@", argumentArray: [identifiers])
+        self.objectsLimit = identifiers.count
+    }
+    
+    public func fetchRequest() -> NSFetchRequest<T.DBObjectType> {
         let request = NSFetchRequest<T.DBObjectType>(entityName: "\(T.DBObjectType.self)")
         request.sortDescriptors = self.sortDescriptors
         request.predicate = self.predicate

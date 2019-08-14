@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MBStorage
 
 public struct SavingsGoalCategory: Identifiable, Codable {
     public var identifier: String

@@ -8,15 +8,23 @@
 
 import Foundation
 
-enum StorageError: Error {
+public enum StorageError: Error {
     case objectAlreadyExist
     case objectNotFound
     case invalidDatabaseObject
     case failedToCreatePlainObject
     case failedToCreateManagedObject
-    case updateObjectsFailed
     
-    var description: String {
+    case saveOrUpdateFailed
+    case updateObjectsFailed
+    case removeObjectsFailed
+    case fetchObjectsFailed
+    case saveObjectsFailed
+    case countObjectsFailed
+    case saveObjectsSynchronouslyFailed
+    case removeObjectsSynchronouslyFailed
+    
+    public var description: String {
         switch self {
         case .invalidDatabaseObject:
             return "Invalid database object"
@@ -30,14 +38,20 @@ enum StorageError: Error {
             return "Failed create managed object"
         case .updateObjectsFailed:
             return "failed to update objects in storage"
+        default: return String(describing: self)
         }
     }
 }
 
-protocol IStorage {
+public protocol IStorage {
     //saveOrUpdate -> upsert
     func saveOrUpdate<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
     func update<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
     func remove<T: PlainObject>(objects: [T], completion: @escaping (Result<Void, Error>) -> Void)
     func fetch<T: PlainObject>(request: StorageRequest<T>, completion: @escaping (Result<[T], Error>) -> Void)
+    func count<T: PlainObject>(for request: StorageRequest<T>) throws -> Int
+    func save<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
+    
+    func saveSynchronously<T: PlainObject>(objects: [T]) throws -> [T]
+    func removeSynchronously<T: PlainObject>(objects: [T]) throws
 }

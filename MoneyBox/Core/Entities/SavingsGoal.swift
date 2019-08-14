@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import MBStorage
 
 public struct SavingsGoal: Identifiable, Codable {
-    private(set) var identifier: String
+    public var identifier: String
     public var categoryId: String
     public var totalAmount: Double
     public var name: String

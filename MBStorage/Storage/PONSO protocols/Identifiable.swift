@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Identifiable {
+public protocol Identifiable {
     associatedtype Identifier
     
     var identifier: Identifier { get }
