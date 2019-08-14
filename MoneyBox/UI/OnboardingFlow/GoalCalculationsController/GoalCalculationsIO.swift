@@ -13,7 +13,7 @@ public enum GoalCalculationsPresenterError: Error {
 }
 
 protocol IGoalCalculationsOutput: AnyObject, IProgressDisplayable, AlertViewDisplayable {
-    func updateWithCategories(_ categories: [SavingsGoalCategory])
+    func updateWithCategories(_ categories: [GoalsCategoryPlainObject])
     func updateWithSavingsGoal()
 }
 

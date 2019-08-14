@@ -15,7 +15,7 @@ class GoalCalculationsPresenter: IGoalCalculationsInput {
     private let shortModel: ShortGoalInformationInputViewController.ShortGoalInfoModel
     
     weak var calculationsController: IGoalCalculationsOutput?
-    var categories = [SavingsGoalCategory]()
+    var categories = [GoalsCategoryPlainObject]()
     
     init(storage: IStorage, shortModel: ShortGoalInformationInputViewController.ShortGoalInfoModel) {
         self.storage = storage
@@ -27,7 +27,7 @@ class GoalCalculationsPresenter: IGoalCalculationsInput {
     }
     
     func prepareCategoriesList(completion: @escaping (Error?) -> Void) {
-        let storageRequest = StorageRequest<SavingsGoalCategory>()
+        let storageRequest = StorageRequest<GoalsCategoryPlainObject>()
         self.storage.fetch(request: storageRequest) { result in
             result.withValue({ categories in
                 self.categories = categories
@@ -40,21 +40,6 @@ class GoalCalculationsPresenter: IGoalCalculationsInput {
     }
     
     func saveGoalWithCalculationsModel(_ model: GoalCalculationsViewController.GoalCalculationsModel) {
-        let goal = SavingsGoal(identifier: "",
-                               categoryId: model.category.identifier,
-                               totalAmount: shortModel.totalSum,
-                               name: shortModel.name,
-                               currency: shortModel.currency,
-                               deadline: model.deadline,
-                               period: Double(model.period))
-        self.calculationsController?.showProgress()
-        self.storage.saveOrUpdate(objects: [goal]) { result in
-            self.calculationsController?.hideProgress()
-            result.withValue({ _ in
-                self.calculationsController?.updateWithSavingsGoal()
-            }, errorHandler: { error in
-                self.calculationsController?.showAlertView(error: error)
-            })
-        }
+        
     }
 }

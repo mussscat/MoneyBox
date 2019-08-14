@@ -10,6 +10,8 @@
 		224C17612303FE2200C08FEA /* CategoryPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C17602303FE2200C08FEA /* CategoryPlainObject.swift */; };
 		224C17632303FEFA00C08FEA /* CurrencyPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C17622303FEFA00C08FEA /* CurrencyPlainObject.swift */; };
 		224C1766230405AF00C08FEA /* StorageRelationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C1765230405AF00C08FEA /* StorageRelationsTests.swift */; };
+		224C176A2304194900C08FEA /* IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C17692304194800C08FEA /* IManagedObject.swift */; };
+		224C176C230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C176B230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift */; };
 		228C71602302AEB400F73F0E /* MBStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228C71562302AEB400F73F0E /* MBStorage.framework */; };
 		228C71652302AEB400F73F0E /* StorageBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C71642302AEB400F73F0E /* StorageBaseTests.swift */; };
 		228C71672302AEB400F73F0E /* MBStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 228C71592302AEB400F73F0E /* MBStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +40,8 @@
 		224C17602303FE2200C08FEA /* CategoryPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPlainObject.swift; sourceTree = "<group>"; };
 		224C17622303FEFA00C08FEA /* CurrencyPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPlainObject.swift; sourceTree = "<group>"; };
 		224C1765230405AF00C08FEA /* StorageRelationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRelationsTests.swift; sourceTree = "<group>"; };
+		224C17692304194800C08FEA /* IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IManagedObject.swift; sourceTree = "<group>"; };
+		224C176B230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+IManagedObject.swift"; sourceTree = "<group>"; };
 		228C71562302AEB400F73F0E /* MBStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		228C71592302AEB400F73F0E /* MBStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBStorage.h; sourceTree = "<group>"; };
 		228C715A2302AEB400F73F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +88,15 @@
 			path = PlainObjects;
 			sourceTree = "<group>";
 		};
+		224C17682304193600C08FEA /* IManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				224C17692304194800C08FEA /* IManagedObject.swift */,
+				224C176B230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift */,
+			);
+			path = IManagedObject;
+			sourceTree = "<group>";
+		};
 		228C714C2302AEB400F73F0E = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		228C71582302AEB400F73F0E /* MBStorage */ = {
 			isa = PBXGroup;
 			children = (
+				224C17682304193600C08FEA /* IManagedObject */,
 				228C71782302AF2C00F73F0E /* CoreData */,
 				228C71702302AF2C00F73F0E /* Storage */,
 				228C71592302AEB400F73F0E /* MBStorage.h */,
@@ -266,7 +280,9 @@
 				228C71822302AF2C00F73F0E /* ICoreDataStack.swift in Sources */,
 				228C717B2302AF2C00F73F0E /* Storage.swift in Sources */,
 				228C71802302AF2C00F73F0E /* StorageRequest.swift in Sources */,
+				224C176A2304194900C08FEA /* IManagedObject.swift in Sources */,
 				228C717E2302AF2C00F73F0E /* Convertible.swift in Sources */,
+				224C176C230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift in Sources */,
 				228C717D2302AF2C00F73F0E /* IStorage.swift in Sources */,
 				228C717F2302AF2C00F73F0E /* Identifiable.swift in Sources */,
 			);

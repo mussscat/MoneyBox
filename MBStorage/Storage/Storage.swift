@@ -28,24 +28,15 @@ public class Storage: IStorage {
                 let fetchRequest = StorageRequest<T>(identifier: object.identifier).fetchRequest()
                 let fetchedObjects = try self.stack.execute(fetchRequest, context: context)
                 if let foundObject = fetchedObjects.first {
-                    object.updateDatabaseObject(foundObject)
-                    guard let newPlainObject = T.createPonso(from: foundObject) else {
-                        throw StorageError.failedToCreatePlainObject
-                    }
-                    
+                    object.updateManagedObject(foundObject, in: context)
+                    let newPlainObject = T.createPlainObject(from: foundObject)
                     savedObjects.append(newPlainObject)
                 } else {
-                    guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.DBObjectType.self),
-                                                                               into: context) as? T.DBObjectType else {
+                    guard let managedObject = object.createManagedObject(in: context) else {
                         throw StorageError.failedToCreateManagedObject
                     }
                     
-                    object.updateDatabaseObject(managedObject)
-                    
-                    guard let newPlainObject = T.createPonso(from: managedObject) else {
-                        throw StorageError.failedToCreatePlainObject
-                    }
-                    
+                    let newPlainObject = T.createPlainObject(from: managedObject)
                     savedObjects.append(newPlainObject)
                 }
             }
@@ -71,18 +62,16 @@ public class Storage: IStorage {
             var updateResults = [T]()
             updateResults.reserveCapacity(objects.count)
             
-            for ponso in objects {
-                let fetchRequest = StorageRequest<T>(identifier: ponso.identifier).fetchRequest()
+            for object in objects {
+                let fetchRequest = StorageRequest<T>(identifier: object.identifier).fetchRequest()
                 let fetchedObjects = try self.stack.execute(fetchRequest, context: context)
                 
                 guard let foundObject = fetchedObjects.first else {
                     throw StorageError.objectNotFound
                 }
                 
-                ponso.updateDatabaseObject(foundObject)
-                guard let plainObject = T.createPonso(from: foundObject) else {
-                    throw StorageError.failedToCreatePlainObject
-                }
+                object.updateManagedObject(foundObject, in: context)
+                let plainObject = T.createPlainObject(from: foundObject)
                 
                 updateResults.append(plainObject)
             }
@@ -130,7 +119,7 @@ public class Storage: IStorage {
     public func fetch<T: PlainObject>(request: StorageRequest<T>, completion: @escaping (Result<[T], Error>) -> Void) {
         self.stack.execute(transaction: { context -> [T] in
             let objects = try self.stack.execute(request.fetchRequest(), context: context)
-            let ponsoObjects = objects.map({ T.createPonso(from: $0) }).compactMap { $0 }
+            let ponsoObjects = objects.map({ T.createPlainObject(from: $0) }).compactMap { $0 }
             return ponsoObjects
         }, completion: { result in
             do {
@@ -172,17 +161,11 @@ public class Storage: IStorage {
                     continue
                 }
                 
-                guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.DBObjectType.self),
-                                                                              into: context) as? T.DBObjectType else {
-                                                                                throw StorageError.failedToCreateManagedObject
+                guard let managedObject = object.createManagedObject(in: context) else {
+                    throw StorageError.failedToCreateManagedObject
                 }
                 
-                object.updateDatabaseObject(managedObject)
-                
-                guard let newPlainObject = T.createPonso(from: managedObject) else {
-                    throw StorageError.failedToCreatePlainObject
-                }
-                
+                let newPlainObject = T.createPlainObject(from: managedObject)
                 savedObjects.append(newPlainObject)
             }
             
@@ -215,17 +198,11 @@ public class Storage: IStorage {
                         continue
                     }
                     
-                    guard let managedObject = NSEntityDescription.insertNewObject(forEntityName: String(describing: T.DBObjectType.self),
-                                                                                  into: context) as? T.DBObjectType else {
-                                                                                    throw StorageError.failedToCreateManagedObject
+                    guard let managedObject = object.createManagedObject(in: context) else {
+                        throw StorageError.failedToCreateManagedObject
                     }
                     
-                    object.updateDatabaseObject(managedObject)
-                    
-                    guard let newPlainObject = T.createPonso(from: managedObject) else {
-                        throw StorageError.failedToCreatePlainObject
-                    }
-                    
+                    let newPlainObject = T.createPlainObject(from: managedObject)
                     savedObjects.append(newPlainObject)
                 }
                 
