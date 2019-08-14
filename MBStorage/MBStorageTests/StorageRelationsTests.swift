@@ -129,6 +129,75 @@ class StorageRelationsTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
     
+    func test_removeCurrency_testObjectsMustRemain() {
+        let category = self.categoryPlainObject(name: "Test_cat")
+        let currency = self.currencyPlainObject(name: "Test_cur")
+        let testObject = self.testEntityPlainObject(category: category, currency: currency)
+        
+        try! self.storage?.saveSynchronously(objects: [category])
+        try! self.storage?.saveSynchronously(objects: [currency])
+        try! self.storage?.saveSynchronously(objects: [testObject])
+        
+        let expectation = XCTestExpectation(description: "test expectation")
+        
+        self.storage?.remove(objects: [currency], completion: { result in
+            do {
+                _ = try result.get()
+                self.storage?.fetch(request: StorageRequest<TestEntityPlainObject>(identifier: testObject.identifier), completion: { result in
+                    do {
+                        let objects = try result.get()
+                        guard let object = objects.first else {
+                            XCTFail()
+                            return
+                        }
+                        
+                        XCTAssertNil(object.currency)
+                    } catch {
+                        XCTFail()
+                    }
+                    
+                    expectation.fulfill()
+                })
+            } catch {
+                XCTFail()
+            }
+        })
+        
+        wait(for: [expectation], timeout: 5.0)
+    }
+    
+    func test_removeLinkedTestObjects_CurrencyMustRemain() {
+        let category = self.categoryPlainObject(name: "Test_cat")
+        let currency = self.currencyPlainObject(name: "Test_cur")
+        let testObject = self.testEntityPlainObject(category: category, currency: currency)
+        
+        try! self.storage?.saveSynchronously(objects: [category])
+        try! self.storage?.saveSynchronously(objects: [currency])
+        try! self.storage?.saveSynchronously(objects: [testObject])
+        
+        let expectation = XCTestExpectation(description: "test expectation")
+        
+        self.storage?.remove(objects: [testObject], completion: { result in
+            do {
+                _ = try result.get()
+                self.storage?.fetch(request: StorageRequest<CurrencyPlainObject>(), completion: { result in
+                    do {
+                        let objects = try result.get()
+                        XCTAssertNotNil(objects.first)
+                    } catch {
+                        XCTFail()
+                    }
+                    
+                    expectation.fulfill()
+                })
+            } catch {
+                XCTFail()
+            }
+        })
+        
+        wait(for: [expectation], timeout: 5.0)
+    }
+    
     // MARK: - Support methods
     
     private func testEntityPlainObject(identifier: String = UUID().uuidString, category: CategoryPlainObject, currency: CurrencyPlainObject) -> TestEntityPlainObject {
