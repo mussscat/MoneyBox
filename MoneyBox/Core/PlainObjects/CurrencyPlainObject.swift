@@ -35,7 +35,7 @@ extension CurrencyPlainObject: Convertible {
         object.identifier = self.identifier
     }
     
-    public static func createPlainObject(from object: DBObjectType) -> CurrencyPlainObject {
+    public static func createPlainObject(from object: DBObjectType) -> CurrencyPlainObject? {
         return CurrencyPlainObject(identifier: object.identifier,
                                    name: object.name)
     }

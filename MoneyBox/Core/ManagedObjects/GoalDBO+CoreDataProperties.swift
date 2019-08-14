@@ -16,15 +16,13 @@ extension GoalDBO {
         return NSFetchRequest<GoalDBO>(entityName: "GoalDBO")
     }
 
-    @NSManaged public var categoryId: String
-    @NSManaged public var currency: String
     @NSManaged public var deadline: Date
     @NSManaged public var identifier: String
     @NSManaged public var name: String
     @NSManaged public var period: Double
     @NSManaged public var totalAmount: Double
     @NSManaged public var category_rel: GoalsCategoryDBO
-    @NSManaged public var currency_rel: CurrencyDBO
+    @NSManaged public var currency_rel: CurrencyDBO?
 
 }
 

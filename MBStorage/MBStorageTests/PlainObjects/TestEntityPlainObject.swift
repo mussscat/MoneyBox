@@ -7,38 +7,58 @@
 //
 
 import Foundation
+import CoreData
 @testable import MBStorage
 
 struct TestEntityPlainObject: PlainObject {
+
     typealias Identifier = String
     typealias DBObjectType = TestEntity
     
     var identifier: Identifier
     var name: String
     var doubleValue: Double
-    var category: String
-    var currency: String
+    var category: CategoryPlainObject
+    var currency: CurrencyPlainObject?
     
-    func updateDatabaseObject(_ object: TestEntity) {
+    func updateManagedObject(_ object: TestEntity, in context: NSManagedObjectContext) {
         object.identifier = self.identifier
         object.name = self.name
         object.doubleValue = self.doubleValue
-        object.category = self.category
-        object.currency = self.currency
+        
+        if object.category_rel.identifier != self.category.identifier {
+            object.updateCategory(with: self.category.identifier, in: context)
+        }
+        
+        if let currency = self.currency, object.currency_rel?.identifier != currency.identifier {
+            object.updateCurrency(with: currency.identifier, in: context)
+        }
     }
     
-    static func createPonso(from object: TestEntity) -> TestEntityPlainObject? {
+    func createManagedObject(in context: NSManagedObjectContext) -> TestEntity? {
+        guard let currency = self.currency else {
+            return nil
+        }
+        
+        return TestEntity.insert(into: context,
+                                 categoryId: self.category.identifier,
+                                 currencyId: currency.identifier,
+                                 updateClosure: { testObject in
+            self.updateManagedObject(testObject, in: context)
+        })
+    }
+    
+    public static func createPlainObject(from object: DBObjectType) -> TestEntityPlainObject? {
         guard
-            let identifier = object.identifier,
-            let name = object.name,
-            let category = object.category,
-            let currency = object.currency
+            let currency_rel = object.currency_rel,
+            let category = CategoryPlainObject.createPlainObject(from: object.category_rel),
+            let currency = CurrencyPlainObject.createPlainObject(from: currency_rel)
         else {
             return nil
         }
         
-        return TestEntityPlainObject(identifier: identifier,
-                                     name: name,
+        return TestEntityPlainObject(identifier: object.identifier,
+                                     name: object.name,
                                      doubleValue: object.doubleValue,
                                      category: category,
                                      currency: currency)

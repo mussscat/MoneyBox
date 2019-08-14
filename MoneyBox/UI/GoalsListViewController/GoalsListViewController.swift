@@ -75,11 +75,6 @@ class GoalsListViewController: UIViewController, UICollectionViewDelegate, UICol
             return UICollectionViewCell()
         }
         
-        let deadlineText = String(describing: goal.deadline)
-        goalCell.setup(with: goal.name,
-                       amount: String(describing: goal.totalAmount),
-                       currency: goal.currency.name, deadline: deadlineText)
-        
         return goalCell
     }
     

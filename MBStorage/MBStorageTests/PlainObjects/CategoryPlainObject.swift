@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 @testable import MBStorage
 
 struct CategoryPlainObject: PlainObject {
@@ -15,17 +16,20 @@ struct CategoryPlainObject: PlainObject {
     
     var identifier: Identifier
     var name: String
+
+    public func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType? {
+        return DBObjectType.insert(into: context, updateClosure: { category in
+            self.updateManagedObject(category, in: context)
+        })
+    }
     
-    func updateDatabaseObject(_ object: CategoryEntity) {
+    public func updateManagedObject(_ object: DBObjectType, in context: NSManagedObjectContext) {
         object.identifier = self.identifier
         object.name = self.name
     }
     
-    static func createPonso(from object: CategoryEntity) -> CategoryPlainObject? {
-        guard let identifier = object.identifier, let name = object.name else {
-            return nil
-        }
-        
-        return CategoryPlainObject(identifier: identifier, name: name)
+    public static func createPlainObject(from object: DBObjectType) -> CategoryPlainObject? {
+        return CategoryPlainObject(identifier: object.identifier,
+                                   name: object.name)
     }
 }

@@ -15,7 +15,7 @@ public struct GoalPlainObject: Identifiable {
     public var category: GoalsCategoryPlainObject
     public var totalAmount: Double
     public var name: String
-    public var currency: CurrencyPlainObject
+    public var currency: CurrencyPlainObject?
     public var deadline: Date
     public var period: Double
     
@@ -66,29 +66,39 @@ extension GoalPlainObject: Convertible {
             object.updateCategory(with: self.category.identifier, in: context)
         }
         
-        if object.currency_rel.identifier != self.currency.identifier {
-            object.updateCurrency(with: self.currency.identifier, in: context)
+        if let currency = self.currency, object.currency_rel?.identifier != currency.identifier {
+            object.updateCurrency(with: currency.identifier, in: context)
         }
     }
     
     public func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType? {
+        guard let currency = self.currency else {
+            return nil
+        }
+        
         return DBObjectType.insert(into: context,
                                    categoryId: self.category.identifier,
-                                   currencyId: self.currency.identifier,
+                                   currencyId: currency.identifier,
                                    updateClosure: { goalObject in
                                 self.updateManagedObject(goalObject, in: context)
         })
     }
     
-    public static func createPlainObject(from object: DBObjectType) -> GoalPlainObject {
-        let category = GoalsCategoryPlainObject.createPlainObject(from: object.category_rel)
-        let currency = CurrencyPlainObject.createPlainObject(from: object.currency_rel)
+    public static func createPlainObject(from object: DBObjectType) -> GoalPlainObject? {
+        guard
+            let currency_rel = object.currency_rel,
+            let category = GoalsCategoryPlainObject.createPlainObject(from: object.category_rel),
+            let currency = CurrencyPlainObject.createPlainObject(from: currency_rel)
+        else {
+            return nil
+        }
         
         return GoalPlainObject(identifier: object.identifier,
                                category: category,
                                totalAmount: object.totalAmount,
                                name: object.name,
-                               currency: currency, deadline: object.deadline,
+                               currency: currency,
+                               deadline: object.deadline,
                                period: object.period)
     }
 }

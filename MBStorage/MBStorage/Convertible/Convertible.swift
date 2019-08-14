@@ -16,5 +16,5 @@ public protocol Convertible {
     
     func updateManagedObject(_ object: DBObjectType, in context: NSManagedObjectContext)
     func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType?
-    static func createPlainObject(from object: DBObjectType) -> Self
+    static func createPlainObject(from object: DBObjectType) -> Self?
 }

@@ -365,31 +365,16 @@ class StorageBaseTests: XCTestCase {
     // MARK: - Support methods
     
     private func testEntityPlainObject(identifier: String = UUID().uuidString, name: String, doubleValue: Double) -> TestEntityPlainObject {
-        let category = self.categoryPlainObject(name: "Test_1")
-        let currency = self.currencyPlainObject(name: "Test_1")
+        let category = self.categoryPlainObject(name: "Test_cat_1")
+        let currency = self.currencyPlainObject(name: "Test_cur_1")
+        try! self.storage?.saveSynchronously(objects: [category])
+        try! self.storage?.saveSynchronously(objects: [currency])
+        
         return TestEntityPlainObject(identifier: identifier,
                                      name: name,
                                      doubleValue: doubleValue,
-                                     category: category.identifier,
-                                     currency: currency.identifier)
-    }
-    
-    private func testEntityPlainObject(identifier: String = UUID().uuidString, name: String, doubleValue: Double, category: CategoryPlainObject) -> TestEntityPlainObject {
-        let currency = self.currencyPlainObject(name: "Test_1")
-        return TestEntityPlainObject(identifier: identifier,
-                                     name: name,
-                                     doubleValue: doubleValue,
-                                     category: category.identifier,
-                                     currency: currency.identifier)
-    }
-    
-    private func testEntityPlainObject(identifier: String = UUID().uuidString, name: String, doubleValue: Double, currency: CurrencyPlainObject) -> TestEntityPlainObject {
-        let category = self.categoryPlainObject(name: "Test_1")
-        return TestEntityPlainObject(identifier: identifier,
-                                     name: name,
-                                     doubleValue: doubleValue,
-                                     category: category.identifier,
-                                     currency: currency.identifier)
+                                     category: category,
+                                     currency: currency)
     }
     
     private func categoryPlainObject(identifier: String = UUID().uuidString, name: String) -> CategoryPlainObject {

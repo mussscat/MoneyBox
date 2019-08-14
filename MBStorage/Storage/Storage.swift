@@ -29,14 +29,20 @@ public class Storage: IStorage {
                 let fetchedObjects = try self.stack.execute(fetchRequest, context: context)
                 if let foundObject = fetchedObjects.first {
                     object.updateManagedObject(foundObject, in: context)
-                    let newPlainObject = T.createPlainObject(from: foundObject)
+                    guard let newPlainObject = T.createPlainObject(from: foundObject) else {
+                        throw StorageError.failedToCreatePlainObject
+                    }
+                    
                     savedObjects.append(newPlainObject)
                 } else {
                     guard let managedObject = object.createManagedObject(in: context) else {
                         throw StorageError.failedToCreateManagedObject
                     }
                     
-                    let newPlainObject = T.createPlainObject(from: managedObject)
+                    guard let newPlainObject = T.createPlainObject(from: managedObject) else {
+                        throw StorageError.failedToCreatePlainObject
+                    }
+                    
                     savedObjects.append(newPlainObject)
                 }
             }
@@ -71,7 +77,9 @@ public class Storage: IStorage {
                 }
                 
                 object.updateManagedObject(foundObject, in: context)
-                let plainObject = T.createPlainObject(from: foundObject)
+                guard let plainObject = T.createPlainObject(from: foundObject) else {
+                    throw StorageError.failedToCreatePlainObject
+                }
                 
                 updateResults.append(plainObject)
             }
@@ -165,7 +173,10 @@ public class Storage: IStorage {
                     throw StorageError.failedToCreateManagedObject
                 }
                 
-                let newPlainObject = T.createPlainObject(from: managedObject)
+                guard let newPlainObject = T.createPlainObject(from: managedObject) else {
+                    throw StorageError.failedToCreatePlainObject
+                }
+                
                 savedObjects.append(newPlainObject)
             }
             
@@ -202,7 +213,10 @@ public class Storage: IStorage {
                         throw StorageError.failedToCreateManagedObject
                     }
                     
-                    let newPlainObject = T.createPlainObject(from: managedObject)
+                    guard let newPlainObject = T.createPlainObject(from: managedObject) else {
+                        throw StorageError.failedToCreatePlainObject
+                    }
+                    
                     savedObjects.append(newPlainObject)
                 }
                 

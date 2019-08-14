@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 @testable import MBStorage
 
 struct CurrencyPlainObject: PlainObject {
@@ -16,16 +17,19 @@ struct CurrencyPlainObject: PlainObject {
     var identifier: Identifier
     var name: String
     
-    func updateDatabaseObject(_ object: CurrencyEntity) {
-        object.identifier = self.identifier
+    public func updateManagedObject(_ object: DBObjectType, in context: NSManagedObjectContext) {
         object.name = self.name
+        object.identifier = self.identifier
     }
     
-    static func createPonso(from object: CurrencyEntity) -> CurrencyPlainObject? {
-        guard let identifier = object.identifier, let name = object.name else {
-            return nil
-        }
-        
-        return CurrencyPlainObject(identifier: identifier, name: name)
+    public static func createPlainObject(from object: DBObjectType) -> CurrencyPlainObject? {
+        return CurrencyPlainObject(identifier: object.identifier,
+                                   name: object.name)
+    }
+    
+    public func createManagedObject(in context: NSManagedObjectContext) -> DBObjectType? {
+        return DBObjectType.insert(into: context, updateClosure: { currency in
+            self.updateManagedObject(currency, in: context)
+        })
     }
 }

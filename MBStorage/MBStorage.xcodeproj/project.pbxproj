@@ -12,6 +12,12 @@
 		224C1766230405AF00C08FEA /* StorageRelationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C1765230405AF00C08FEA /* StorageRelationsTests.swift */; };
 		224C176A2304194900C08FEA /* IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C17692304194800C08FEA /* IManagedObject.swift */; };
 		224C176C230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C176B230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift */; };
+		224C1783230428E800C08FEA /* TestEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C177D230428E800C08FEA /* TestEntity+CoreDataProperties.swift */; };
+		224C1784230428E800C08FEA /* TestEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C177E230428E800C08FEA /* TestEntity+CoreDataClass.swift */; };
+		224C1785230428E800C08FEA /* CategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C177F230428E800C08FEA /* CategoryEntity+CoreDataProperties.swift */; };
+		224C1786230428E800C08FEA /* CurrencyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C1780230428E800C08FEA /* CurrencyEntity+CoreDataClass.swift */; };
+		224C1787230428E800C08FEA /* CurrencyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C1781230428E800C08FEA /* CurrencyEntity+CoreDataProperties.swift */; };
+		224C1788230428E800C08FEA /* CategoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C1782230428E800C08FEA /* CategoryEntity+CoreDataClass.swift */; };
 		228C71602302AEB400F73F0E /* MBStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228C71562302AEB400F73F0E /* MBStorage.framework */; };
 		228C71652302AEB400F73F0E /* StorageBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C71642302AEB400F73F0E /* StorageBaseTests.swift */; };
 		228C71672302AEB400F73F0E /* MBStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 228C71592302AEB400F73F0E /* MBStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +48,12 @@
 		224C1765230405AF00C08FEA /* StorageRelationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRelationsTests.swift; sourceTree = "<group>"; };
 		224C17692304194800C08FEA /* IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IManagedObject.swift; sourceTree = "<group>"; };
 		224C176B230419A200C08FEA /* NSManagedObjectContext+IManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+IManagedObject.swift"; sourceTree = "<group>"; };
+		224C177D230428E800C08FEA /* TestEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		224C177E230428E800C08FEA /* TestEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		224C177F230428E800C08FEA /* CategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		224C1780230428E800C08FEA /* CurrencyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		224C1781230428E800C08FEA /* CurrencyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		224C1782230428E800C08FEA /* CategoryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		228C71562302AEB400F73F0E /* MBStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		228C71592302AEB400F73F0E /* MBStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBStorage.h; sourceTree = "<group>"; };
 		228C715A2302AEB400F73F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +109,35 @@
 			path = IManagedObject;
 			sourceTree = "<group>";
 		};
+		224C177A230427A000C08FEA /* Identifiable */ = {
+			isa = PBXGroup;
+			children = (
+				228C71762302AF2C00F73F0E /* Identifiable.swift */,
+			);
+			path = Identifiable;
+			sourceTree = "<group>";
+		};
+		224C177B230427B800C08FEA /* StorageRequest */ = {
+			isa = PBXGroup;
+			children = (
+				228C71772302AF2C00F73F0E /* StorageRequest.swift */,
+			);
+			path = StorageRequest;
+			sourceTree = "<group>";
+		};
+		224C177C230428E800C08FEA /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				224C177E230428E800C08FEA /* TestEntity+CoreDataClass.swift */,
+				224C177D230428E800C08FEA /* TestEntity+CoreDataProperties.swift */,
+				224C1782230428E800C08FEA /* CategoryEntity+CoreDataClass.swift */,
+				224C177F230428E800C08FEA /* CategoryEntity+CoreDataProperties.swift */,
+				224C1780230428E800C08FEA /* CurrencyEntity+CoreDataClass.swift */,
+				224C1781230428E800C08FEA /* CurrencyEntity+CoreDataProperties.swift */,
+			);
+			path = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		228C714C2302AEB400F73F0E = {
 			isa = PBXGroup;
 			children = (
@@ -118,9 +159,12 @@
 		228C71582302AEB400F73F0E /* MBStorage */ = {
 			isa = PBXGroup;
 			children = (
-				224C17682304193600C08FEA /* IManagedObject */,
-				228C71782302AF2C00F73F0E /* CoreData */,
+				228C71782302AF2C00F73F0E /* CoreDataStack */,
 				228C71702302AF2C00F73F0E /* Storage */,
+				224C17682304193600C08FEA /* IManagedObject */,
+				228C71742302AF2C00F73F0E /* Convertible */,
+				224C177A230427A000C08FEA /* Identifiable */,
+				224C177B230427B800C08FEA /* StorageRequest */,
 				228C71592302AEB400F73F0E /* MBStorage.h */,
 				228C715A2302AEB400F73F0E /* Info.plist */,
 			);
@@ -134,6 +178,7 @@
 				228C71642302AEB400F73F0E /* StorageBaseTests.swift */,
 				228C71662302AEB400F73F0E /* Info.plist */,
 				228C719F2302B38D00F73F0E /* MBTestModel.xcdatamodeld */,
+				224C177C230428E800C08FEA /* ManagedObjects */,
 				224C17642303FF3B00C08FEA /* PlainObjects */,
 			);
 			path = MBStorageTests;
@@ -144,28 +189,25 @@
 			children = (
 				228C71712302AF2C00F73F0E /* Storage.swift */,
 				228C71732302AF2C00F73F0E /* IStorage.swift */,
-				228C71742302AF2C00F73F0E /* PONSO protocols */,
-				228C71772302AF2C00F73F0E /* StorageRequest.swift */,
 			);
 			path = Storage;
 			sourceTree = SOURCE_ROOT;
 		};
-		228C71742302AF2C00F73F0E /* PONSO protocols */ = {
+		228C71742302AF2C00F73F0E /* Convertible */ = {
 			isa = PBXGroup;
 			children = (
 				228C71752302AF2C00F73F0E /* Convertible.swift */,
-				228C71762302AF2C00F73F0E /* Identifiable.swift */,
 			);
-			path = "PONSO protocols";
+			path = Convertible;
 			sourceTree = "<group>";
 		};
-		228C71782302AF2C00F73F0E /* CoreData */ = {
+		228C71782302AF2C00F73F0E /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
 				228C71792302AF2C00F73F0E /* CoreDataStack.swift */,
 				228C717A2302AF2C00F73F0E /* ICoreDataStack.swift */,
 			);
-			path = CoreData;
+			path = CoreDataStack;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -293,10 +335,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				228C71A32302B3FD00F73F0E /* TestEntityPlainObject.swift in Sources */,
+				224C1786230428E800C08FEA /* CurrencyEntity+CoreDataClass.swift in Sources */,
+				224C1787230428E800C08FEA /* CurrencyEntity+CoreDataProperties.swift in Sources */,
 				224C17612303FE2200C08FEA /* CategoryPlainObject.swift in Sources */,
+				224C1788230428E800C08FEA /* CategoryEntity+CoreDataClass.swift in Sources */,
+				224C1784230428E800C08FEA /* TestEntity+CoreDataClass.swift in Sources */,
 				228C71A12302B38D00F73F0E /* MBTestModel.xcdatamodeld in Sources */,
 				224C1766230405AF00C08FEA /* StorageRelationsTests.swift in Sources */,
 				224C17632303FEFA00C08FEA /* CurrencyPlainObject.swift in Sources */,
+				224C1785230428E800C08FEA /* CategoryEntity+CoreDataProperties.swift in Sources */,
+				224C1783230428E800C08FEA /* TestEntity+CoreDataProperties.swift in Sources */,
 				228C71652302AEB400F73F0E /* StorageBaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

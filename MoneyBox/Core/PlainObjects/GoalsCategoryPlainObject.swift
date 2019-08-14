@@ -47,7 +47,7 @@ extension GoalsCategoryPlainObject: Convertible {
         object.iconURL = self.iconURL
     }
     
-    public static func createPlainObject(from object: DBObjectType) -> GoalsCategoryPlainObject {
+    public static func createPlainObject(from object: DBObjectType) -> GoalsCategoryPlainObject? {
         return GoalsCategoryPlainObject(identifier: object.identifier,
                                         name: object.name,
                                         iconURL: object.iconURL)
