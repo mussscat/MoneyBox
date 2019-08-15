@@ -17,7 +17,7 @@ class GoalsListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     private var goalsService: ISavingsGoalService
-    private var goals: [GoalPlainObject]?
+    private var goals: [Goal]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     

@@ -103,8 +103,7 @@ public class Storage: IStorage {
     public func remove<T: PlainObject>(objects: [T], completion: @escaping (Result<Void, Error>) -> Void) {
         self.stack.execute(transaction: { context in
             let identifiers = objects.map({ $0.identifier })
-            let request = StorageRequest<T>()
-            request.predicate = NSPredicate(format: "identifier IN %@", argumentArray: [identifiers])
+            let request = StorageRequest<T>(identifiers: identifiers)
             let fetchedObjects = try self.stack.execute(request.fetchRequest(), context: context)
             fetchedObjects.forEach {
                 context.delete($0)

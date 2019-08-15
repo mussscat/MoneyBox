@@ -1,5 +1,5 @@
 //
-//  GoalsCategoryPlainObject.swift
+//  GoalCategory.swift
 //  MoneyBox
 //
 //  Created by Сергей Федоров on 25.08.2018.
@@ -10,7 +10,7 @@ import Foundation
 import MBStorage
 import CoreData
 
-public struct GoalsCategoryPlainObject: Identifiable, Codable {
+public struct GoalCategory: Identifiable, Codable {
     public var identifier: String
     var name: String
     var iconURL: String?
@@ -31,7 +31,7 @@ public struct GoalsCategoryPlainObject: Identifiable, Codable {
     }
 }
 
-extension GoalsCategoryPlainObject: Convertible {
+extension GoalCategory: Convertible {
     
     public typealias DBObjectType = GoalsCategoryDBO
     
@@ -47,15 +47,15 @@ extension GoalsCategoryPlainObject: Convertible {
         object.iconURL = self.iconURL
     }
     
-    public static func createPlainObject(from object: DBObjectType) -> GoalsCategoryPlainObject? {
-        return GoalsCategoryPlainObject(identifier: object.identifier,
+    public static func createPlainObject(from object: DBObjectType) -> GoalCategory? {
+        return GoalCategory(identifier: object.identifier,
                                         name: object.name,
                                         iconURL: object.iconURL)
     }
 }
 
-extension GoalsCategoryPlainObject: Equatable {
-    static public func ==(rhs: GoalsCategoryPlainObject, lhs: GoalsCategoryPlainObject) -> Bool {
+extension GoalCategory: Equatable {
+    static public func ==(rhs: GoalCategory, lhs: GoalCategory) -> Bool {
         return rhs.identifier == lhs.identifier
     }
 }

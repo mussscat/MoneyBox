@@ -1,5 +1,5 @@
 //
-//  GoalPlainObject.swift
+//  Goal.swift
 //  MoneyBox
 //
 //  Created by Сергей Федоров on 25.08.2018.
@@ -10,20 +10,20 @@ import Foundation
 import MBStorage
 import CoreData
 
-public struct GoalPlainObject: Identifiable {
+public struct Goal: Identifiable {
     public var identifier: String
-    public var category: GoalsCategoryPlainObject
+    public var category: GoalCategory
     public var totalAmount: Double
     public var name: String
-    public var currency: CurrencyPlainObject?
+    public var currency: Currency?
     public var deadline: Date
     public var period: Double
     
     init(identifier: Identifier,
-         category: GoalsCategoryPlainObject,
+         category: GoalCategory,
          totalAmount: Double,
          name: String,
-         currency: CurrencyPlainObject,
+         currency: Currency?,
          deadline: Date,
          period: Double) {
         self.identifier = identifier
@@ -35,10 +35,10 @@ public struct GoalPlainObject: Identifiable {
         self.period = period
     }
     
-    init(category: GoalsCategoryPlainObject,
+    init(category: GoalCategory,
          totalAmount: Double,
          name: String,
-         currency: CurrencyPlainObject,
+         currency: Currency?,
          deadline: Date,
          period: Double) {
         self.identifier = UUID().uuidString
@@ -51,7 +51,7 @@ public struct GoalPlainObject: Identifiable {
     }
 }
 
-extension GoalPlainObject: Convertible {
+extension Goal: Convertible {
     
     public typealias DBObjectType = GoalDBO
     
@@ -84,16 +84,17 @@ extension GoalPlainObject: Convertible {
         })
     }
     
-    public static func createPlainObject(from object: DBObjectType) -> GoalPlainObject? {
-        guard
-            let currency_rel = object.currency_rel,
-            let category = GoalsCategoryPlainObject.createPlainObject(from: object.category_rel),
-            let currency = CurrencyPlainObject.createPlainObject(from: currency_rel)
-        else {
+    public static func createPlainObject(from object: DBObjectType) -> Goal? {
+        guard let category = GoalCategory.createPlainObject(from: object.category_rel) else {
             return nil
         }
         
-        return GoalPlainObject(identifier: object.identifier,
+        var currency: Currency?
+        if let currency_rel = object.currency_rel {
+           currency = Currency.createPlainObject(from: currency_rel)
+        }
+        
+        return Goal(identifier: object.identifier,
                                category: category,
                                totalAmount: object.totalAmount,
                                name: object.name,
@@ -103,8 +104,8 @@ extension GoalPlainObject: Convertible {
     }
 }
 
-extension GoalPlainObject: Equatable {
-    static public func ==(rhs: GoalPlainObject, lhs: GoalPlainObject) -> Bool {
+extension Goal: Equatable {
+    static public func ==(rhs: Goal, lhs: Goal) -> Bool {
         return rhs.identifier == lhs.identifier
     }
 }

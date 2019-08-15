@@ -49,12 +49,13 @@ struct TestEntityPlainObject: PlainObject {
     }
     
     public static func createPlainObject(from object: DBObjectType) -> TestEntityPlainObject? {
-        guard
-            let currency_rel = object.currency_rel,
-            let category = CategoryPlainObject.createPlainObject(from: object.category_rel),
-            let currency = CurrencyPlainObject.createPlainObject(from: currency_rel)
-        else {
+        guard let category = CategoryPlainObject.createPlainObject(from: object.category_rel) else {
             return nil
+        }
+        
+        var currency: CurrencyPlainObject?
+        if let currency_rel = object.currency_rel {
+            currency = CurrencyPlainObject.createPlainObject(from: currency_rel)
         }
         
         return TestEntityPlainObject(identifier: object.identifier,

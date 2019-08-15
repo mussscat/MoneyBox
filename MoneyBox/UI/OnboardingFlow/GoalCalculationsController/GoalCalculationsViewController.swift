@@ -12,7 +12,7 @@ import TagListView
 class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGoalCalculationsOutput, TagListViewDelegate {
     
     struct GoalCalculationsModel {
-        var category: GoalsCategoryPlainObject
+        var category: GoalCategory
         var deadline: Date
         var period: Int
     }
@@ -68,7 +68,7 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
         }
     }
     
-    func updateWithCategories(_ categories: [GoalsCategoryPlainObject]) {
+    func updateWithCategories(_ categories: [GoalCategory]) {
         let tags = categories.reduce(into: [String]()) { result, category in
             result.append(category.name)
         }

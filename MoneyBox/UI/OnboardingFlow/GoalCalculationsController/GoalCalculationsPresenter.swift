@@ -15,7 +15,7 @@ class GoalCalculationsPresenter: IGoalCalculationsInput {
     private let shortModel: ShortGoalInformationInputViewController.ShortGoalInfoModel
     
     weak var calculationsController: IGoalCalculationsOutput?
-    var categories = [GoalsCategoryPlainObject]()
+    var categories = [GoalCategory]()
     
     init(storage: IStorage, shortModel: ShortGoalInformationInputViewController.ShortGoalInfoModel) {
         self.storage = storage
@@ -27,7 +27,7 @@ class GoalCalculationsPresenter: IGoalCalculationsInput {
     }
     
     func prepareCategoriesList(completion: @escaping (Error?) -> Void) {
-        let storageRequest = StorageRequest<GoalsCategoryPlainObject>()
+        let storageRequest = StorageRequest<GoalCategory>()
         self.storage.fetch(request: storageRequest) { result in
             result.withValue({ categories in
                 self.categories = categories

@@ -1,5 +1,5 @@
 //
-//  CurrencyPlainObject.swift
+//  Currency.swift
 //  MoneyBox
 //
 //  Created by Сергей Федоров on 18.12.2018.
@@ -10,7 +10,7 @@ import Foundation
 import MBStorage
 import CoreData
 
-public struct CurrencyPlainObject: Identifiable, Codable {
+public struct Currency: Identifiable, Codable {
     public var identifier: String
     public var name: String
     
@@ -26,7 +26,7 @@ public struct CurrencyPlainObject: Identifiable, Codable {
     }
 }
 
-extension CurrencyPlainObject: Convertible {
+extension Currency: Convertible {
 
     public typealias DBObjectType = CurrencyDBO
     
@@ -35,8 +35,8 @@ extension CurrencyPlainObject: Convertible {
         object.identifier = self.identifier
     }
     
-    public static func createPlainObject(from object: DBObjectType) -> CurrencyPlainObject? {
-        return CurrencyPlainObject(identifier: object.identifier,
+    public static func createPlainObject(from object: DBObjectType) -> Currency? {
+        return Currency(identifier: object.identifier,
                                    name: object.name)
     }
     
@@ -47,8 +47,8 @@ extension CurrencyPlainObject: Convertible {
     }
 }
 
-extension CurrencyPlainObject: Equatable {
-    static public func ==(rhs: CurrencyPlainObject, lhs: CurrencyPlainObject) -> Bool {
+extension Currency: Equatable {
+    static public func ==(rhs: Currency, lhs: Currency) -> Bool {
         return rhs.identifier == lhs.identifier
     }
 }

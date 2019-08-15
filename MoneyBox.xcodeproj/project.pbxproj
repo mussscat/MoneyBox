@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1417887121C98E52007638D8 /* CurrencyPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417887021C98E52007638D8 /* CurrencyPlainObject.swift */; };
+		1417887121C98E52007638D8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417887021C98E52007638D8 /* Currency.swift */; };
 		144FD1EB2128D03400F2F08D /* MoneyBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1E92128D03400F2F08D /* MoneyBox.xcdatamodeld */; };
 		144FD1FA2129FFB200F2F08D /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1F92129FFB100F2F08D /* LocalNotificationsService.swift */; };
 		144FD1FE212E0FD700F2F08D /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1FD212E0FD700F2F08D /* FlowCoordinator.swift */; };
 		144FD200212E10C800F2F08D /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD1FF212E10C800F2F08D /* ApplicationCoordinator.swift */; };
 		144FD206212FD41E00F2F08D /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD205212FD41E00F2F08D /* ApplicationAssembly.swift */; };
-		144FD2092130AE1700F2F08D /* GoalsCategoryPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD2082130AE1700F2F08D /* GoalsCategoryPlainObject.swift */; };
-		144FD20B2130AE2A00F2F08D /* GoalPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD20A2130AE2A00F2F08D /* GoalPlainObject.swift */; };
+		144FD2092130AE1700F2F08D /* GoalCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD2082130AE1700F2F08D /* GoalCategory.swift */; };
+		144FD20B2130AE2A00F2F08D /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD20A2130AE2A00F2F08D /* Goal.swift */; };
 		144FD20F2130B7DB00F2F08D /* SavingsGoalService_protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD20E2130B7DB00F2F08D /* SavingsGoalService_protocol.swift */; };
 		144FD2112130B7F100F2F08D /* SavingsGoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD2102130B7F100F2F08D /* SavingsGoalService.swift */; };
 		144FD2142133390800F2F08D /* GoalsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FD2122133390800F2F08D /* GoalsListViewController.swift */; };
@@ -124,14 +124,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1417887021C98E52007638D8 /* CurrencyPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPlainObject.swift; sourceTree = "<group>"; };
+		1417887021C98E52007638D8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		144FD1EA2128D03400F2F08D /* MoneyBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyBox.xcdatamodel; sourceTree = "<group>"; };
 		144FD1F92129FFB100F2F08D /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 		144FD1FD212E0FD700F2F08D /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		144FD1FF212E10C800F2F08D /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		144FD205212FD41E00F2F08D /* ApplicationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
-		144FD2082130AE1700F2F08D /* GoalsCategoryPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCategoryPlainObject.swift; sourceTree = "<group>"; };
-		144FD20A2130AE2A00F2F08D /* GoalPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPlainObject.swift; sourceTree = "<group>"; };
+		144FD2082130AE1700F2F08D /* GoalCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCategory.swift; sourceTree = "<group>"; };
+		144FD20A2130AE2A00F2F08D /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		144FD20E2130B7DB00F2F08D /* SavingsGoalService_protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalService_protocol.swift; sourceTree = "<group>"; };
 		144FD2102130B7F100F2F08D /* SavingsGoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalService.swift; sourceTree = "<group>"; };
 		144FD2122133390800F2F08D /* GoalsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListViewController.swift; sourceTree = "<group>"; };
@@ -241,9 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				144FD1E92128D03400F2F08D /* MoneyBox.xcdatamodeld */,
-				144FD2082130AE1700F2F08D /* GoalsCategoryPlainObject.swift */,
-				144FD20A2130AE2A00F2F08D /* GoalPlainObject.swift */,
-				1417887021C98E52007638D8 /* CurrencyPlainObject.swift */,
+				144FD2082130AE1700F2F08D /* GoalCategory.swift */,
+				144FD20A2130AE2A00F2F08D /* Goal.swift */,
+				1417887021C98E52007638D8 /* Currency.swift */,
 			);
 			path = PlainObjects;
 			sourceTree = "<group>";
@@ -805,7 +805,7 @@
 				144FD20F2130B7DB00F2F08D /* SavingsGoalService_protocol.swift in Sources */,
 				1491656A2168C260003425D1 /* OnboardingAssembly.swift in Sources */,
 				144FD200212E10C800F2F08D /* ApplicationCoordinator.swift in Sources */,
-				144FD20B2130AE2A00F2F08D /* GoalPlainObject.swift in Sources */,
+				144FD20B2130AE2A00F2F08D /* Goal.swift in Sources */,
 				149165712168C3A6003425D1 /* GoalsListCoordinator.swift in Sources */,
 				144FD2142133390800F2F08D /* GoalsListViewController.swift in Sources */,
 				1491656F2168C398003425D1 /* GoalsListAssembly.swift in Sources */,
@@ -832,12 +832,12 @@
 				228C719E2302B16800F73F0E /* StorageAssembly.swift in Sources */,
 				144FD2112130B7F100F2F08D /* SavingsGoalService.swift in Sources */,
 				144FD1EB2128D03400F2F08D /* MoneyBox.xcdatamodeld in Sources */,
-				144FD2092130AE1700F2F08D /* GoalsCategoryPlainObject.swift in Sources */,
+				144FD2092130AE1700F2F08D /* GoalCategory.swift in Sources */,
 				148375E72128C55B00C94B58 /* AppDelegate.swift in Sources */,
 				72631CF6222B054900FC937A /* AlertViewDisplayable.swift in Sources */,
 				224C177423041B1C00C08FEA /* GoalsCategoryDBO+CoreDataClass.swift in Sources */,
 				224C177623041B1C00C08FEA /* GoalDBO+CoreDataClass.swift in Sources */,
-				1417887121C98E52007638D8 /* CurrencyPlainObject.swift in Sources */,
+				1417887121C98E52007638D8 /* Currency.swift in Sources */,
 				720E9D4521D7873400C3F302 /* IProgressDisplayable.swift in Sources */,
 				14FEC5BA213C776700279C80 /* GoalsListHeaderReusableView.swift in Sources */,
 				224C177923041B1C00C08FEA /* GoalsCategoryDBO+CoreDataProperties.swift in Sources */,

@@ -150,12 +150,12 @@ class StorageRelationsTests: XCTestCase {
                             XCTFail()
                             return
                         }
-                        
+
                         XCTAssertNil(object.currency)
                     } catch {
                         XCTFail()
                     }
-                    
+
                     expectation.fulfill()
                 })
             } catch {

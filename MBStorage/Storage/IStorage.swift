@@ -52,6 +52,7 @@ public protocol IStorage {
     func count<T: PlainObject>(for request: StorageRequest<T>) throws -> Int
     func save<T: PlainObject>(objects: [T], completion: @escaping (Result<[T], Error>) -> Void)
     
+    @discardableResult
     func saveSynchronously<T: PlainObject>(objects: [T]) throws -> [T]
     func removeSynchronously<T: PlainObject>(objects: [T]) throws
 }

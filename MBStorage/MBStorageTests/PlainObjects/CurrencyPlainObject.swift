@@ -1,5 +1,5 @@
 //
-//  CurrencyPlainObject.swift
+//  Currency.swift
 //  MBStorageTests
 //
 //  Created by s.m.fedorov on 14/08/2019.

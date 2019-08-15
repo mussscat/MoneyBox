@@ -20,10 +20,10 @@ public enum SavingsGoalServiceError: Error {
 }
 
 public protocol ISavingsGoalService: class {
-    func add(savingsGoal: GoalPlainObject, completion: @escaping ((Result<GoalPlainObject, SavingsGoalServiceError>) -> Void))
-    func remove(savingsGoal: GoalPlainObject, completion: @escaping ((Result<Void, SavingsGoalServiceError>) -> Void))
-    func update(savingsGoal: GoalPlainObject, completion: @escaping ((Result<GoalPlainObject, SavingsGoalServiceError>) -> Void))
-    func fetchAllGoalsForCategory(categoryId: String, completion: @escaping ((Result<[GoalPlainObject], SavingsGoalServiceError>) -> Void))
-    func fetchAllGoals(completion: @escaping ((Result<[GoalPlainObject], SavingsGoalServiceError>) -> Void))
-    func fetchGoal(identifier: String, completion: @escaping ((Result<GoalPlainObject, SavingsGoalServiceError>) -> Void))
+    func add(savingsGoal: Goal, completion: @escaping ((Result<Goal, SavingsGoalServiceError>) -> Void))
+    func remove(savingsGoal: Goal, completion: @escaping ((Result<Void, SavingsGoalServiceError>) -> Void))
+    func update(savingsGoal: Goal, completion: @escaping ((Result<Goal, SavingsGoalServiceError>) -> Void))
+    func fetchAllGoalsForCategory(categoryId: String, completion: @escaping ((Result<[Goal], SavingsGoalServiceError>) -> Void))
+    func fetchAllGoals(completion: @escaping ((Result<[Goal], SavingsGoalServiceError>) -> Void))
+    func fetchGoal(identifier: String, completion: @escaping ((Result<Goal, SavingsGoalServiceError>) -> Void))
 }
