@@ -12,7 +12,7 @@ import TagListView
 class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGoalCalculationsOutput, TagListViewDelegate {
     
     struct GoalCalculationsModel {
-        var category: SavingsGoalCategory
+        var category: GoalCategory
         var deadline: Date
         var period: Int
     }
@@ -68,7 +68,7 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
         }
     }
     
-    func updateWithCategories(_ categories: [SavingsGoalCategory]) {
+    func updateWithCategories(_ categories: [GoalCategory]) {
         let tags = categories.reduce(into: [String]()) { result, category in
             result.append(category.name)
         }
@@ -89,19 +89,7 @@ class GoalCalculationsViewController: UIViewController, UITextFieldDelegate, IGo
     }
     
     @objc private func submitFormButtonPressed() {
-        guard
-            let name = self.categoryInputTextField.text,
-//            let dateString = self.deadlineInputTextField.text,
-            let period = self.periodInputTextField.text,
-            let intPeriod = Int(period)
-        else {
-            return
-        }
         
-        let category = SavingsGoalCategory(identifier: "1", name: name, iconURL: "", sortOrder: 1)
-        let model = GoalCalculationsModel(category: category, deadline: Date(), period: intPeriod)
-        
-        self.presenter.saveGoalWithCalculationsModel(model)
     }
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {

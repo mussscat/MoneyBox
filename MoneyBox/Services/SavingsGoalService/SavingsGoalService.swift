@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MBStorage
 
 public class SavingsGoalService: ISavingsGoalService {
     
@@ -16,7 +17,7 @@ public class SavingsGoalService: ISavingsGoalService {
         self.storage = storage
     }
     
-    public func add(savingsGoal: SavingsGoal, completion: @escaping (Result<SavingsGoal, SavingsGoalServiceError>) -> Void) {
+    public func add(savingsGoal: Goal, completion: @escaping (Result<Goal, SavingsGoalServiceError>) -> Void) {
         self.storage.saveOrUpdate(objects: [savingsGoal]) { result in
             do {
                 if let goal = try result.get().first {
@@ -30,7 +31,7 @@ public class SavingsGoalService: ISavingsGoalService {
         }
     }
     
-    public func remove(savingsGoal: SavingsGoal, completion: @escaping (Result<Void, SavingsGoalServiceError>) -> Void) {
+    public func remove(savingsGoal: Goal, completion: @escaping (Result<Void, SavingsGoalServiceError>) -> Void) {
         self.storage.remove(objects: [savingsGoal], completion: { result in
             do {
                 try result.get()
@@ -41,7 +42,7 @@ public class SavingsGoalService: ISavingsGoalService {
         })
     }
     
-    public func update(savingsGoal: SavingsGoal, completion: @escaping ((Result<SavingsGoal, SavingsGoalServiceError>) -> Void)) {
+    public func update(savingsGoal: Goal, completion: @escaping ((Result<Goal, SavingsGoalServiceError>) -> Void)) {
         self.storage.update(objects: [savingsGoal]) { result in
             do {
                 if let goal = try result.get().first {
@@ -55,8 +56,8 @@ public class SavingsGoalService: ISavingsGoalService {
         }
     }
     
-    public func fetchAllGoalsForCategory(categoryId: String, completion: @escaping (Result<[SavingsGoal], SavingsGoalServiceError>) -> Void) {
-        let fetchRequest = StorageRequest<SavingsGoal>()
+    public func fetchAllGoalsForCategory(categoryId: String, completion: @escaping (Result<[Goal], SavingsGoalServiceError>) -> Void) {
+        let fetchRequest = StorageRequest<Goal>()
         fetchRequest.predicate = NSPredicate(format: "categoryId == %@", categoryId)
         self.storage.fetch(request: fetchRequest) { result in
             do {
@@ -71,8 +72,8 @@ public class SavingsGoalService: ISavingsGoalService {
         }
     }
     
-    public func fetchAllGoals(completion: @escaping (Result<[SavingsGoal], SavingsGoalServiceError>) -> Void) {
-        let fetchRequest = StorageRequest<SavingsGoal>()
+    public func fetchAllGoals(completion: @escaping (Result<[Goal], SavingsGoalServiceError>) -> Void) {
+        let fetchRequest = StorageRequest<Goal>()
         self.storage.fetch(request: fetchRequest) { result in
             do {
                 if let goals = try? result.get(), !goals.isEmpty {
@@ -86,8 +87,8 @@ public class SavingsGoalService: ISavingsGoalService {
         }
     }
     
-    public func fetchGoal(identifier: String, completion: @escaping ((Result<SavingsGoal, SavingsGoalServiceError>) -> Void)) {
-        let fetchRequest = StorageRequest<SavingsGoal>()
+    public func fetchGoal(identifier: String, completion: @escaping ((Result<Goal, SavingsGoalServiceError>) -> Void)) {
+        let fetchRequest = StorageRequest<Goal>()
         fetchRequest.predicate = NSPredicate(format: "identifier == %@", identifier)
         self.storage.fetch(request: fetchRequest) { result in
             do {

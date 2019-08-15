@@ -17,7 +17,7 @@ class GoalsListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     private var goalsService: ISavingsGoalService
-    private var goals: [SavingsGoal]?
+    private var goals: [Goal]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -74,17 +74,6 @@ class GoalsListViewController: UIViewController, UICollectionViewDelegate, UICol
             assertionFailure()
             return UICollectionViewCell()
         }
-        
-        var deadlineText: String? = nil
-        if let deadline = goal.deadline {
-            deadlineText = String(describing: deadline)
-        } else if let period = goal.period {
-            deadlineText = String(describing: period)
-        }
-        
-        goalCell.setup(with: goal.name,
-                       amount: String(describing: goal.totalAmount),
-                       currency: goal.currency, deadline: deadlineText)
         
         return goalCell
     }

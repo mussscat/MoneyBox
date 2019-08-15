@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrencyDBO" representedClassName="CurrencyDBO" syncable="YES">
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="goal_rel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GoalDBO" inverseName="currency_rel" inverseEntity="GoalDBO" syncable="YES"/>
+    </entity>
+    <entity name="GoalDBO" representedClassName="GoalDBO" syncable="YES">
+        <attribute name="deadline" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="period" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="totalAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="category_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalsCategoryDBO" inverseName="goals_rel" inverseEntity="GoalsCategoryDBO" syncable="YES"/>
+        <relationship name="currency_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CurrencyDBO" inverseName="goal_rel" inverseEntity="CurrencyDBO" syncable="YES"/>
+    </entity>
+    <entity name="GoalsCategoryDBO" representedClassName="GoalsCategoryDBO" syncable="YES">
+        <attribute name="iconURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="goals_rel" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GoalDBO" inverseName="category_rel" inverseEntity="GoalDBO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CurrencyDBO" positionX="-54" positionY="36" width="128" height="90"/>
+        <element name="GoalsCategoryDBO" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="GoalDBO" positionX="-63" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>

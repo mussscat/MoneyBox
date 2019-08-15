@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MBStorage
 
 class SetupPresenter: SetupInput {
     
@@ -34,25 +35,6 @@ class SetupPresenter: SetupInput {
     }
     
     func preloadDataIfNeeded() {
-        let path = Bundle.main.path(forResource: "DefaultCategories", ofType: "plist")!
-        let dict = NSDictionary(contentsOfFile: path)
-        guard let categories = dict?.object(forKey: "Categories") as? [String] else {
-            return
-        }
-        
-        let plainObjects = categories.reduce(into: [SavingsGoalCategory]()) { result, category in
-            let object = SavingsGoalCategory(identifier: category, name: category, iconURL: "", sortOrder: 1)
-            result.append(object)
-        }
-        
-        self.viewController?.showProgress()
-        self.storage.saveOrUpdate(objects: plainObjects) { result in
-            self.viewController?.hideProgress()
-            result.withValue({ _ in
-                self.viewController?.updateWithSetupFinished()
-            }, errorHandler: { error in
-                self.viewController?.showRetriableError(error)
-            })
-        }
+        self.viewController?.updateWithSetupFinished()
     }
 }

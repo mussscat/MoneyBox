@@ -10,9 +10,9 @@ import UIKit
 
 class GoalDetailsViewController: UIViewController {
     
-    private let goal: SavingsGoal
+    private let goal: Goal
     
-    init(with goal: SavingsGoal) {
+    init(with goal: Goal) {
         self.goal = goal
         
         super.init(nibName: nil, bundle: nil)
