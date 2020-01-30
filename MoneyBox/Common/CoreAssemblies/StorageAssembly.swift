@@ -10,12 +10,16 @@ import Foundation
 import EasyDi
 import MBStorage
 
+private enum Constants {
+    static let dbName = "MoneyBox"
+}
+
 class StorageAssembly: Assembly {
     var storage: IStorage {
         return define(scope: .lazySingleton, init: Storage(coreDataStack: self.coreDataStack))
     }
     
     var coreDataStack: ICoreDataStack {
-        return define(scope: .lazySingleton, init: CoreDataStack(dbName: "MoneyBox.momd", bundle: Bundle.main))
+        return define(scope: .lazySingleton, init: CoreDataStack(dbName: Constants.dbName, bundle: Bundle.main))
     }
 }

@@ -39,8 +39,10 @@ class SetupViewController: UIViewController, SetupOutput {
     }
     
     func showRetriableError(_ error: Error) {
-        self.showAlertView(error: error) {
-            self.presenter.setupPresenter()
+        DispatchQueue.main.async {
+            self.showAlertView(error: error) {
+                self.presenter.setupPresenter()
+            }
         }
     }
 }
